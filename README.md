@@ -38,7 +38,7 @@ Luồng dữ liệu được thiết kế như sau:
 └── README.md       # Tài liệu dự án
 ```
 ## 7. Quy trình cộng tác
-* Mọi tính năng đều được làm việc trên nhánh riêng. Cú pháp đặt tên nhánh: feature/tên-task.
+* Mọi tính năng đều được làm việc trên nhánh riêng. Cú pháp đặt tên nhánh: feat/tên ngắn gọn của task
 * QA/QC kiểm duyệt mã nguồn qua Pull Request (PR) trước khi merge vào nhánh main.
 ## 8. Kết quả nghiên cứu
 > Nhóm sẽ cập nhật các biểu đồ so sánh Accuracy và kết luận nghiên cứu tại đây.
