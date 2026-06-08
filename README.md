@@ -38,8 +38,20 @@ Luồng dữ liệu được thiết kế như sau:
 └── README.md       # Tài liệu dự án
 ```
 ## 7. Quy trình cộng tác
-* Mọi tính năng đều được làm việc trên nhánh riêng. Cú pháp đặt tên nhánh: feat/tên ngắn gọn của task
-* QA/QC kiểm duyệt mã nguồn qua Pull Request (PR) trước khi merge vào nhánh main.
+```text
+1. Pull mới nhất: Trước khi tạo nhánh, thành viên phải chạy lệnh <git pull origin main> để lấy code mới nhất về.
+2. Tạo nhánh: chạy lệnh <git checkout -b feat/tên-task>
+3. Làm việc: Thực hiện code, test trên nhánh đó.
+4. Commit: chạy lệnh <git commit -m "mô tả ngắn gọn công việc"> (Ví dụ: commit -m "Thêm hàm loại bỏ stopwords tiếng Việt")
+5. Push & PR:
+- Chạy lệnh <git push origin feat/tên-task>
+- Lên GitHub mở một Pull Request (PR) từ nhánh feat/tên-task vào nhánh main.
+6. Review: QA/QC vào đọc PR.
+- Nếu ổn: QA/QC nhấn nút Approve.
+- Nếu chưa ổn: QA/QC nhấn nút Request Changes và ghi rõ lý do.
+```
+
+Merge: Sau khi được Approve, Tech Leader (hoặc QA/QC nếu bạn phân quyền) mới tiến hành Merge vào nhánh main.
 ## 8. Kết quả nghiên cứu
 > Nhóm sẽ cập nhật các biểu đồ so sánh Accuracy và kết luận nghiên cứu tại đây.
 
