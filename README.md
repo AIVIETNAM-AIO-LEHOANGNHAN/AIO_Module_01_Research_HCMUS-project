@@ -37,9 +37,15 @@ Luồng dữ liệu được thiết kế như sau:
 ├── app.py          # Ứng dụng Streamlit minh họa
 └── README.md       # Tài liệu dự án
 ```
-### 7. Quy trình cộng tác
-* Mọi tính năng đều được làm việc trên nhánh riêng. Cú pháp đặt tên nhánh: featủe/tên-task.
+## 7. Quy trình cộng tác
+* Mọi tính năng đều được làm việc trên nhánh riêng. Cú pháp đặt tên nhánh: feature/tên-task.
 * QA/QC kiểm duyệt mã nguồn qua Pull Request (PR) trước khi merge vào nhánh main.
+## 8. Kết quả nghiên cứu
+> Nhóm sẽ cập nhật các biểu đồ so sánh Accuracy và kết luận nghiên cứu tại đây.
+
+### *Dự án thực hiện bởi Nhóm AIO_2026_Research_HCMUS - Module 1 - AIO Conquer 2026 - AI VIET NAM*
+
+
 
 
 
