@@ -18,7 +18,7 @@
 ## 4. Công cụ
 * **Ngôn ngữ:** Python (Xử lý chuỗi, logic phân loại).
 * **Giao diện:** Streamlit (Triển khai ứng dụng minh họa).
-* **Quản lý dự án:** Jira (quản lý Task), Overleaf (viết báo cáo).
+* **Quản lý dự án:** Jira + framework KANBAN (quản lý Task, theo dõi tiến độ project), Overleaf (viết báo cáo).
 * **Quản lý mã nguồn:** Git/GitHub (quy trình Feature Branching).
 ## 5. Quy trình triển khai (Pipeline)
 Luồng dữ liệu được thiết kế như sau:
