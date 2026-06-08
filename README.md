@@ -49,9 +49,8 @@ Luồng dữ liệu được thiết kế như sau:
 6. Review: QA/QC vào đọc PR.
 - Nếu ổn: QA/QC nhấn nút Approve.
 - Nếu chưa ổn: QA/QC nhấn nút Request Changes và ghi rõ lý do.
+7. Merge: Sau khi được Approve, Tech Leader tiến hành Merge vào nhánh main.
 ```
-
-Merge: Sau khi được Approve, Tech Leader (hoặc QA/QC nếu bạn phân quyền) mới tiến hành Merge vào nhánh main.
 ## 8. Kết quả nghiên cứu
 > Nhóm sẽ cập nhật các biểu đồ so sánh Accuracy và kết luận nghiên cứu tại đây.
 
