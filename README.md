@@ -1,6 +1,6 @@
 ## 1. Giới thiệu
-#### **Tên dự án:** NGHIÊN CỨU TÁC ĐỘNG CỦA VIỆC LOẠI BỎ TỪ DỪNG (STOPWORDS) ĐẾN ĐỘ CHÍNH XÁC CỦA HỆ THỐNG PHÂN LOẠI VĂN BẢN
-#### Thông qua việc so sánh giữa hai phiên bản dữ liệu có từ dừng và loại bỏ từ dừng. Nhóm nghiên cứu đánh giá một cách định lượng ảnh hưởng của kỹ thuật tiền xử lý (Text Preprocessing) – cụ thể là loại bỏ từ dừng (stopwords) đến độ chính xác của hệ thống phân loại văn bản
+- **Tên dự án:** NGHIÊN CỨU TÁC ĐỘNG CỦA VIỆC LOẠI BỎ TỪ DỪNG (STOPWORDS) ĐẾN ĐỘ CHÍNH XÁC CỦA HỆ THỐNG PHÂN LOẠI VĂN BẢN
+- Thông qua việc so sánh giữa hai phiên bản dữ liệu có từ dừng và loại bỏ từ dừng. Nhóm nghiên cứu đánh giá một cách định lượng ảnh hưởng của kỹ thuật tiền xử lý (Text Preprocessing) – cụ thể là loại bỏ từ dừng (stopwords) đến độ chính xác của hệ thống phân loại văn bản
 
 ## 2. Phân công vai trò
 |Tên thành viên| Vai trò | Trách nhiệm chính |
