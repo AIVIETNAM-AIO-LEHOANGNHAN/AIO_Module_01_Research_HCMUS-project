@@ -9,7 +9,7 @@
 |Nguyễn Nhật Tuấn Kiệt| **AIE Data** | Thu thập, làm sạch dữ liệu, xây dựng bộ từ dừng (Stopwords). |
 |Nguyễn Trần Duy Anh| **AIE Model** | Xây dựng logic phân loại, thiết lập thí nghiệm, phân tích sai số. |
 |Nguyễn Võ Duy Tuân| **AIE Pipeline** | Tích hợp hệ thống end-to-end, triển khai Web App với Streamlit. |
-|Nguyễn Quốc Duy Anh| **QA/QC** | Kiểm soát chất lượng, duyệt PR, đánh giá lỗi mô hình (Error Analysis). |
+|Nguyễn Quốc Minh Tâm| **QA/QC** | Kiểm soát chất lượng, duyệt PR, đánh giá lỗi mô hình (Error Analysis). |
 
 ## 3. Mục tiêu của dự án
 * **Nghiên cứu khoa học:** So sánh độ chính xác giữa hai phiên bản dữ liệu (có và không có stopwords).
@@ -35,6 +35,7 @@ Luồng dữ liệu được thiết kế như sau:
 ├── pipeline/       # Chứa script xử lý luồng (End-to-end)
 ├── docs/           # Báo cáo Overleaf và tài liệu nghiên cứu
 ├── app.py          # Ứng dụng Streamlit minh họa
+├── requirements    # Chứa các thư viện đã cài trong dự án
 └── README.md       # Tài liệu dự án
 ```
 ## 7. Quy trình cộng tác
