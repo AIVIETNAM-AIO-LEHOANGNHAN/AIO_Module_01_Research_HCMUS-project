@@ -77,6 +77,8 @@ bất kỳ
 bất luận
 bất ngờ
 bất nhược
+bất quá
+bất quá chỉ
 bất thình lình
 bất tử
 bất đồ
@@ -94,6 +96,7 @@ bắt đầu
 bắt đầu từ
 bằng
 bằng cứ
+bằng không
 bằng người
 bằng nhau
 bằng như
@@ -111,11 +114,13 @@ bỏ
 bỏ bà
 bỏ cha
 bỏ cuộc
+bỏ không
 bỏ lại
 bỏ mình
 bỏ mất
 bỏ mẹ
 bỏ nhỏ
+bỏ quá
 bỏ ra
 bỏ riêng
 bỏ việc
@@ -123,6 +128,7 @@ bỏ xa
 bỗng
 bỗng chốc
 bỗng dưng
+bỗng không
 bỗng nhiên
 bỗng nhưng
 bỗng thấy
@@ -138,6 +144,7 @@ bởi chưng
 bởi nhưng
 bởi sao
 bởi thế
+bởi thế cho nên
 bởi tại
 bởi vì
 bởi vậy
@@ -153,13 +160,16 @@ cao thấp
 cao thế
 cao xa
 cha
+cha chả
 chao ôi
 chia sẻ
 chiếc
 cho
 cho biết
 cho chắc
+cho hay
 cho nhau
+cho nên
 cho rằng
 cho rồi
 cho thấy
@@ -217,6 +227,15 @@ chăng chắc
 chăng nữa
 chơi
 chơi họ
+chưa bao giờ
+chưa chắc
+chưa có
+chưa cần
+chưa dùng
+chưa dễ
+chưa kể
+chưa tính
+chưa từng
 chầm chập
 chậc
 chắc
@@ -227,6 +246,10 @@ chắc lòng
 chắc người
 chắc vào
 chắc ăn
+chẳng lẽ
+chẳng những
+chẳng nữa
+chẳng phải
 chết nỗi
 chết thật
 chết tiệt
@@ -240,7 +263,9 @@ chị
 chị bộ
 chị ấy
 chịu
+chịu chưa
 chịu lời
+chịu tốt
 chịu ăn
 chọn
 chọn bên
@@ -249,6 +274,7 @@ chốc chốc
 chớ
 chớ chi
 chớ gì
+chớ không
 chớ kể
 chớ như
 chợt
@@ -259,6 +285,8 @@ chứ
 chứ ai
 chứ còn
 chứ gì
+chứ không
+chứ không phải
 chứ lại
 chứ lị
 chứ như
@@ -278,11 +306,13 @@ cuốn
 cuộc
 càng
 càng càng
+càng hay
 cá nhân
 các
 các cậu
 cách
 cách bức
+cách không
 cách nhau
 cách đều
 cái
@@ -347,6 +377,7 @@ căn cắt
 căn tính
 cũng
 cũng như
+cũng nên
 cũng thế
 cũng vậy
 cũng vậy thôi
@@ -377,6 +408,9 @@ cảm ơn
 cấp
 cấp số
 cấp trực tiếp
+cần cấp
+cần gì
+cần số
 cật lực
 cật sức
 cậu
@@ -446,6 +480,7 @@ dễ thường
 dễ thấy
 dễ ăn
 dễ đâu
+dở chừng
 dữ
 dữ cách
 em
@@ -491,6 +526,16 @@ gặp
 gặp khó khăn
 gặp phải
 gồm
+hay biết
+hay hay
+hay không
+hay là
+hay làm
+hay nhỉ
+hay nói
+hay sao
+hay tin
+hay đâu
 hiểu
 hiện nay
 hiện tại
@@ -524,12 +569,16 @@ hỏi xin
 hỗ trợ
 khi
 khi khác
+khi không
 khi nào
+khi nên
 khi trước
 khiến
 khoảng
 khoảng cách
+khoảng không
 khá
+khá tốt
 khác
 khác gì
 khác khác
@@ -549,6 +598,34 @@ khó nghĩ
 khó nói
 khó thấy
 khó tránh
+không ai
+không bao giờ
+không bao lâu
+không biết
+không bán
+không chỉ
+không còn
+không có
+không có gì
+không cùng
+không cần
+không cứ
+không dùng
+không gì
+không hay
+không khỏi
+không kể
+không ngoài
+không nhận
+không những
+không phải
+không phải không
+không thể
+không tính
+không điều kiện
+không được
+không đầy
+không để
 khẳng định
 khỏi
 khỏi nói
@@ -583,6 +660,7 @@ làm lấy
 làm mất
 làm ngay
 làm như
+làm nên
 làm ra
 làm riêng
 làm sao
@@ -611,6 +689,7 @@ lên số
 lên xuống
 lên đến
 lòng
+lòng không
 lúc
 lúc khác
 lúc lâu
@@ -681,6 +760,7 @@ mang về
 muốn
 mà
 mà cả
+mà không
 mà lại
 mà thôi
 mà vẫn
@@ -713,6 +793,7 @@ một số
 một vài
 một ít
 mới
+mới hay
 mới rồi
 mới đây
 mở
@@ -737,6 +818,7 @@ ngay từ
 nghe
 nghe chừng
 nghe hiểu
+nghe không
 nghe lại
 nghe nhìn
 nghe như
@@ -798,6 +880,7 @@ ngọn nguồn
 ngọt
 ngồi
 ngồi bệt
+ngồi không
 ngồi sau
 ngồi trệt
 ngộ nhỡ
@@ -833,6 +916,7 @@ nhón nhén
 như
 như ai
 như chơi
+như không
 như là
 như nhau
 như quả
@@ -900,12 +984,18 @@ những muốn
 những như
 nào
 nào cũng
+nào hay
 nào là
 nào phải
 nào đâu
 nào đó
 này
 này nọ
+nên chi
+nên chăng
+nên làm
+nên người
+nên tránh
 nó
 nóc
 nói
@@ -925,6 +1015,7 @@ nói thêm
 nói thật
 nói toẹt
 nói trước
+nói tốt
 nói với
 nói xa
 nói ý
@@ -950,6 +1041,8 @@ nặng mình
 nặng về
 nếu
 nếu có
+nếu cần
+nếu không
 nếu mà
 nếu như
 nếu thế
@@ -989,6 +1082,7 @@ phải cách
 phải cái
 phải giờ
 phải khi
+phải không
 phải lại
 phải lời
 phải người
@@ -1028,6 +1122,19 @@ quay bước
 quay lại
 quay số
 quay đi
+quá bán
+quá bộ
+quá giờ
+quá lời
+quá mức
+quá nhiều
+quá tay
+quá thì
+quá tin
+quá trình
+quá tuổi
+quá đáng
+quá ư
 quả
 quả là
 quả thật
@@ -1069,6 +1176,7 @@ rõ thật
 rút cục
 răng
 răng răng
+rất lâu
 rằng
 rằng là
 rốt cuộc
@@ -1121,6 +1229,7 @@ sắp
 sắp đặt
 sẽ
 sẽ biết
+sẽ hay
 số
 số cho biết
 số cụ thể
@@ -1148,6 +1257,7 @@ than ôi
 thanh
 thanh ba
 thanh chuyển
+thanh không
 thanh thanh
 thanh tính
 thanh điều kiện
@@ -1178,6 +1288,7 @@ thà là
 thà rằng
 thành ra
 thành thử
+thái quá
 tháng
 tháng ngày
 tháng năm
@@ -1205,6 +1316,7 @@ thúng thắng
 thương ôi
 thường
 thường bị
+thường hay
 thường khi
 thường số
 thường sự
@@ -1235,6 +1347,7 @@ thật quả
 thật ra
 thật sự
 thật thà
+thật tốt
 thật vậy
 thế
 thế chuẩn bị
@@ -1242,6 +1355,7 @@ thế là
 thế lại
 thế mà
 thế nào
+thế nên
 thế ra
 thế sự
 thế thì
@@ -1391,6 +1505,7 @@ tại đây
 tại đó
 tạo
 tạo cơ hội
+tạo nên
 tạo ra
 tạo ý
 tạo điều kiện
@@ -1413,6 +1528,11 @@ tỏ ra
 tỏ vẻ
 tốc tả
 tối ư
+tốt bạn
+tốt bộ
+tốt hơn
+tốt mối
+tốt ngày
 tột
 tột cùng
 tớ
@@ -1503,6 +1623,7 @@ vùng nước
 văng tê
 vượt
 vượt khỏi
+vượt quá
 vạn nhất
 vả chăng
 vả lại
@@ -1513,10 +1634,12 @@ vẫn thế
 vậy
 vậy là
 vậy mà
+vậy nên
 vậy ra
 vậy thì
 vậy ư
 về
+về không
 về nước
 về phần
 về sau
@@ -1593,9 +1716,11 @@ yêu cầu
 ít nhiều
 ít nhất
 ít nữa
+ít quá
 ít ra
 ít thôi
 ít thấy
+ô hay
 ô hô
 ô kê
 ô kìa
@@ -1624,6 +1749,7 @@ yêu cầu
 ăn làm
 ăn người
 ăn ngồi
+ăn quá
 ăn riêng
 ăn sáng
 ăn tay
@@ -1663,6 +1789,8 @@ yêu cầu
 đây rồi
 đây đó
 đã
+đã hay
+đã không
 đã là
 đã lâu
 đã thế
@@ -1719,6 +1847,7 @@ yêu cầu
 đến cả
 đến giờ
 đến gần
+đến hay
 đến khi
 đến lúc
 đến lời
@@ -1739,6 +1868,7 @@ yêu cầu
 để
 để cho
 để giống
+để không
 để lòng
 để lại
 để mà
@@ -1754,6 +1884,7 @@ yêu cầu
 đủ điều
 đủ điểm
 ơ
+ơ hay
 ơ kìa
 ơi
 ơi là

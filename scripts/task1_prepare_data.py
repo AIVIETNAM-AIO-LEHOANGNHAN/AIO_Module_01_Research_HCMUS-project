@@ -116,6 +116,8 @@ data/
 
 Mỗi file CSV có 2 cột: `text`, `label` (0 = tiêu cực, 1 = tích cực).
 
+`raw.csv` giữ nguyên text từ Hugging Face (Task 1 chỉ chuẩn hóa khoảng trắng). Dataset gốc UIT-VSFC đã ở dạng lowercase; Task 2 mới thực hiện lowercase và loại ký tự đặc biệt trên `cleaned.csv`.
+
 ## 3. Thống kê dữ liệu
 
 Số lượng trước khi cân bằng:

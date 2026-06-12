@@ -9,7 +9,9 @@ Output:
   - docs/Stopwords_Rationale.md
 """
 
+import re
 import sys
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -61,11 +63,21 @@ def download_raw_stopwords(
 ) -> None:
     """Tải baseline stopwords từ GitHub nếu chưa có."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    # QA [F3-04]: HTTP status is not checked. If the URL returns a 404 or redirect,
-    # the raw.txt will be overwritten with HTML/error content silently.
-    # Fix: check response.status == 200 before writing.
-    with urllib.request.urlopen(url, timeout=30) as response:
-        output_path.write_text(response.read().decode("utf-8"), encoding="utf-8")
+    request = urllib.request.Request(url, headers={"User-Agent": "AIO-Module-01/1.0"})
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            if response.status != 200:
+                raise urllib.error.HTTPError(
+                    url, response.status, "Unexpected HTTP status", response.headers, None
+                )
+            content = response.read().decode("utf-8")
+    except urllib.error.URLError as exc:
+        raise RuntimeError(f"Failed to download stopwords from {url}") from exc
+
+    if not content.strip() or content.lstrip().startswith("<"):
+        raise ValueError(f"Invalid stopwords content from {url}")
+
+    output_path.write_text(content, encoding="utf-8")
 
 
 def load_raw_stopwords(path: Path = STOPWORDS_RAW) -> set[str]:
@@ -81,23 +93,23 @@ def load_raw_stopwords(path: Path = STOPWORDS_RAW) -> set[str]:
     return words
 
 
-def contains_any_token(phrase: str, token_set: set[str]) -> bool:
-    """Kiểm tra phrase có chứa token thuộc token_set không."""
-    return any(token in token_set for token in phrase.split())
+def is_protected_entry(entry: str, protected_words: set[str]) -> bool:
+    """Chỉ loại entry one-word trùng protected; giữ cụm multi-word."""
+    return len(entry.split()) == 1 and entry in protected_words
 
 
 def build_stopwords(raw_stopwords: set[str], protected_words: set[str]) -> tuple[set[str], set[str]]:
-    """Tạo stopwords chính thức, loại entry chứa protected token."""
-    # QA [F3-02]: contains_any_token causes OVER-REMOVAL of multi-word phrases.
-    # 131 phrases like "cho nên" (therefore), "bằng không" (otherwise), "chưa bao giờ"
-    # (never) are removed because they contain a protected single token — even though
-    # the protected token ("nên", "không", "chưa") carries NO sentiment meaning in those
-    # compound phrases. Consider restricting protection to single-token entries only:
-    #   removed = {w for w in raw_stopwords if w in protected_words}
-    # (This is safe today because multi-word entries are never matched anyway — see F3-01)
-    removed = {w for w in raw_stopwords if contains_any_token(w, protected_words)}
+    """Tạo stopwords chính thức, loại entry one-word trùng protected token."""
+    removed = {w for w in raw_stopwords if is_protected_entry(w, protected_words)}
     stopwords = raw_stopwords - removed
     return stopwords, removed
+
+
+def split_stopword_entries(stopwords: set[str]) -> tuple[list[str], set[str]]:
+    """Tách entry multi-word (ưu tiên dài trước) và single-word."""
+    multi_word = sorted((w for w in stopwords if " " in w), key=len, reverse=True)
+    single_word = {w for w in stopwords if " " not in w}
+    return multi_word, single_word
 
 
 def save_word_list(words: set[str], path: Path) -> None:
@@ -111,19 +123,36 @@ def load_stopwords(path: Path = STOPWORDS_CUSTOM) -> set[str]:
     return load_word_list(path)
 
 
-def remove_stopwords(text: str, stopwords: set[str]) -> str:
-    """Loại stopwords khỏi câu (tokenize theo khoảng trắng)."""
-    # QA [F3-01] CRITICAL: text.split() produces single syllable/word tokens.
-    # custom.txt contains 1438/1799 multi-word entries (e.g. "bao giờ", "cho nên",
-    # "bao nhiêu"). These NEVER match because each token is a single word.
-    # Only the 361 single-word entries actually have any effect.
-    # Fix options:
-    #   (a) Apply Vietnamese word segmentation (underthesea/VnCoreNLP) before this call
-    #       so "bao giờ" becomes one token, OR
-    #   (b) Filter custom.txt to single-word entries only, OR
-    #   (c) Use regex phrase-matching for multi-word entries.
-    # Until fixed, 80% of the stopwords list is dead code.
-    return " ".join(token for token in text.split() if token.lower() not in stopwords)
+def remove_stopwords(
+    text: str,
+    stopwords: set[str],
+    protected_words: set[str] | None = None,
+) -> str:
+    """Loại stopwords khỏi câu (hỗ trợ cụm multi-word, bảo vệ protected tokens)."""
+    if not text or not stopwords:
+        return text.strip() if text else ""
+
+    if protected_words is None:
+        protected_words = load_word_list(STOPWORDS_PROTECTED)
+
+    multi_word, single_word = split_stopword_entries(stopwords)
+    single_word -= protected_words
+    safe_multi = [
+        phrase
+        for phrase in multi_word
+        if not any(token in protected_words for token in phrase.split())
+    ]
+
+    padded = f" {normalize_entry(text)} "
+
+    for phrase in safe_multi:
+        needle = f" {phrase} "
+        while needle in padded:
+            padded = padded.replace(needle, " ")
+
+    tokens = padded.split()
+    filtered = [token for token in tokens if token not in single_word]
+    return re.sub(r"\s+", " ", " ".join(filtered)).strip()
 
 
 def demo_incorrect_removal(sentence: str, protected_word: str) -> dict[str, str]:
@@ -138,12 +167,16 @@ def demo_incorrect_removal(sentence: str, protected_word: str) -> dict[str, str]
 def write_rationale(
     path: Path,
     raw_count: int,
+    raw_stopwords: set[str],
     stopwords: set[str],
     protected_words: set[str],
     removed_entries: set[str],
 ) -> None:
     """Tạo tài liệu giải thích lý do dùng custom stopwords."""
     protected_preview = ", ".join(f"`{w}`" for w in sorted(protected_words))
+    protected_not_in_raw = sorted(protected_words - raw_stopwords)
+    not_in_raw_preview = ", ".join(f"`{w}`" for w in protected_not_in_raw)
+    multi_word, single_word = split_stopword_entries(stopwords)
 
     content = f"""# Stopwords Rationale
 
@@ -167,6 +200,8 @@ Các từ trong `data/stopwords/protected.txt`:
 
 Ví dụ: `giảng viên dạy chưa tốt` — nếu xóa `chưa` → `giảng viên dạy tốt` (**đảo nghĩa**).
 
+Một số protected words ({not_in_raw_preview}) **không có trong baseline** `raw.txt`; vẫn giữ trong `protected.txt` để phòng khi baseline được cập nhật sau này.
+
 Xem thêm `docs/research_context.md` và papers trong `docs/research/`.
 
 ## 4. Quy trình build
@@ -175,8 +210,10 @@ Script `scripts/task3_build_stopwords.py`:
 
 1. Đọc `data/stopwords/raw.txt`
 2. Đọc `data/stopwords/protected.txt`
-3. Loại entry chứa protected token
+3. Loại **entry one-word** trùng protected token (giữ nguyên cụm multi-word như `cho nên`, `chưa bao giờ`)
 4. Ghi `data/stopwords/custom.txt`
+
+`remove_stopwords()` xóa cụm multi-word trước (ưu tiên dài, bỏ qua cụm chứa protected token), sau đó xóa single-word (trừ protected).
 
 ## 5. Thống kê
 
@@ -185,7 +222,9 @@ Script `scripts/task3_build_stopwords.py`:
 | `data/stopwords/raw.txt` | {raw_count} |
 | `data/stopwords/protected.txt` | {len(protected_words)} |
 | `data/stopwords/custom.txt` | {len(stopwords)} |
-| Entry bị loại (protected overlap) | {len(removed_entries)} |
+| Entry bị loại (protected one-word) | {len(removed_entries)} |
+| Single-word trong `custom.txt` | {len(single_word)} |
+| Multi-word trong `custom.txt` | {len(multi_word)} |
 
 ## 6. Biến thí nghiệm
 
@@ -205,6 +244,9 @@ print(demo_incorrect_removal("giảng viên dạy chưa tốt", "chưa"))
 stopwords = load_stopwords()
 sample = "giảng viên không nhiệt tình , thầy dạy rất chậm ."
 print(remove_stopwords(sample, stopwords))
+
+# Multi-word stopword (vd. "bao giờ")
+print(remove_stopwords("không biết bao giờ mới xong", stopwords))
 ```
 """
 
@@ -227,6 +269,7 @@ def main() -> None:
     write_rationale(
         RATIONALE_PATH,
         raw_count=len(raw_stopwords),
+        raw_stopwords=raw_stopwords,
         stopwords=stopwords,
         protected_words=protected_words,
         removed_entries=removed_entries,
