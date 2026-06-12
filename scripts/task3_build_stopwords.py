@@ -123,6 +123,17 @@ def load_stopwords(path: Path = STOPWORDS_CUSTOM) -> set[str]:
     return load_word_list(path)
 
 
+_PROTECTED_WORDS_CACHE: set[str] | None = None
+
+
+def load_protected_words(path: Path = STOPWORDS_PROTECTED, *, refresh: bool = False) -> set[str]:
+    """Đọc protected words (cache in-memory để tránh đọc disk mỗi lần gọi)."""
+    global _PROTECTED_WORDS_CACHE
+    if refresh or _PROTECTED_WORDS_CACHE is None:
+        _PROTECTED_WORDS_CACHE = load_word_list(path)
+    return _PROTECTED_WORDS_CACHE
+
+
 def remove_stopwords(
     text: str,
     stopwords: set[str],
@@ -133,7 +144,7 @@ def remove_stopwords(
         return text.strip() if text else ""
 
     if protected_words is None:
-        protected_words = load_word_list(STOPWORDS_PROTECTED)
+        protected_words = load_protected_words()
 
     multi_word, single_word = split_stopword_entries(stopwords)
     single_word -= protected_words
@@ -159,7 +170,11 @@ def demo_incorrect_removal(sentence: str, protected_word: str) -> dict[str, str]
     """Demo hậu quả nếu xóa nhầm từ phủ định/cảm xúc."""
     return {
         "original": sentence,
-        "incorrect": remove_stopwords(sentence, {protected_word}),
+        "incorrect": remove_stopwords(
+            sentence,
+            {protected_word},
+            protected_words=set(),
+        ),
         "protected_word": protected_word,
     }
 
@@ -237,16 +252,22 @@ Script `scripts/task3_build_stopwords.py`:
 ## 7. Demo QA
 
 ```python
-from scripts.task3_build_stopwords import demo_incorrect_removal, load_stopwords, remove_stopwords
+from scripts.task3_build_stopwords import (
+    demo_incorrect_removal,
+    load_protected_words,
+    load_stopwords,
+    remove_stopwords,
+)
 
 print(demo_incorrect_removal("giảng viên dạy chưa tốt", "chưa"))
 
 stopwords = load_stopwords()
+protected = load_protected_words()
 sample = "giảng viên không nhiệt tình , thầy dạy rất chậm ."
-print(remove_stopwords(sample, stopwords))
+print(remove_stopwords(sample, stopwords, protected))
 
 # Multi-word stopword (vd. "bao giờ")
-print(remove_stopwords("không biết bao giờ mới xong", stopwords))
+print(remove_stopwords("không biết bao giờ mới xong", stopwords, protected))
 ```
 """
 

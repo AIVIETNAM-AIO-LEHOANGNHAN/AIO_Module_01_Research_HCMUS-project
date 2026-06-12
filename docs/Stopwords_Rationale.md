@@ -57,14 +57,20 @@ Script `scripts/task3_build_stopwords.py`:
 ## 7. Demo QA
 
 ```python
-from scripts.task3_build_stopwords import demo_incorrect_removal, load_stopwords, remove_stopwords
+from scripts.task3_build_stopwords import (
+    demo_incorrect_removal,
+    load_protected_words,
+    load_stopwords,
+    remove_stopwords,
+)
 
 print(demo_incorrect_removal("giảng viên dạy chưa tốt", "chưa"))
 
 stopwords = load_stopwords()
+protected = load_protected_words()
 sample = "giảng viên không nhiệt tình , thầy dạy rất chậm ."
-print(remove_stopwords(sample, stopwords))
+print(remove_stopwords(sample, stopwords, protected))
 
 # Multi-word stopword (vd. "bao giờ")
-print(remove_stopwords("không biết bao giờ mới xong", stopwords))
+print(remove_stopwords("không biết bao giờ mới xong", stopwords, protected))
 ```
