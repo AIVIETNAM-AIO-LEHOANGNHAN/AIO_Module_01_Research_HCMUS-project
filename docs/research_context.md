@@ -23,8 +23,8 @@ Do not remove negation or sentiment-bearing words:
 
 ## Research rationale
 
-1. **Word segmentation & UIT-VSFC** — `docs/research/2301.00418_word_segmentation.pdf`
-2. **Vietnamese SA overview** — `docs/research/vietnamese_sentiment_analysis_overview.pdf`
+1. **Is word segmentation necessary for Vietnamese sentiment classification?** — `docs/research/2301.00418_is_word_segmentation_necessary_for_vietnamese_sentiment_classification.pdf`
+2. **Vietnamese Sentiment Analysis: An Overview and Comparative Study of Fine-tuning Pretrained Language Models** — `docs/research/vietnamese_sentiment_analysis_overview_comparative_study_finetuning_pretrained_language_models.pdf`
 3. **Stopword baseline** — [vietnamese-stopwords](https://github.com/stopwords/vietnamese-stopwords)
 4. **Stopword removal is experimental** — must not be assumed to always improve results.
 
@@ -63,6 +63,6 @@ docs/
 ├── research_context.md
 ├── Stopwords_Rationale.md
 └── research/
-    ├── 2301.00418_word_segmentation.pdf
-    └── vietnamese_sentiment_analysis_overview.pdf
+    ├── 2301.00418_is_word_segmentation_necessary_for_vietnamese_sentiment_classification.pdf
+    └── vietnamese_sentiment_analysis_overview_comparative_study_finetuning_pretrained_language_models.pdf
 ```
