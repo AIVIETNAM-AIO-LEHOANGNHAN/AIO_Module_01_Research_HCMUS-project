@@ -5,84 +5,40 @@
 - Tên dataset: Vietnamese Students' Feedback Corpus (UIT-VSFC)
 - Nguồn: Hugging Face dataset `uitnlp/vietnamese_students_feedback`
 - Ngôn ngữ: Tiếng Việt
-- Bài toán gốc: Phân loại cảm xúc và chủ đề trong phản hồi của sinh viên
-- Bài toán sử dụng trong dự án: Phân loại cảm xúc nhị phân Positive/Negative
+- Bài toán sử dụng: Phân loại cảm xúc nhị phân Positive/Negative
 
-## 2. Lý do chọn dataset
+## 2. Cấu trúc thư mục `data/`
 
-Dataset này phù hợp với đề tài nghiên cứu tác động của stopwords lên phân loại văn bản vì:
+```text
+data/
+├── train/
+│   ├── raw.csv        # Dữ liệu gốc Task 1 (8000 dòng)
+│   └── cleaned.csv    # Sau tiền xử lý Task 2
+├── test/
+│   ├── raw.csv        # Dữ liệu gốc Task 1 (2000 dòng)
+│   └── cleaned.csv    # Sau tiền xử lý Task 2
+├── stopwords/
+│   ├── raw.txt        # Baseline từ GitHub
+│   ├── custom.txt     # Stopwords dùng trong project
+│   └── protected.txt  # Từ không được xóa
+├── qa_sample_50.csv
+└── README_DATA.md
+```
 
-- Dữ liệu là văn bản tiếng Việt.
-- Có nhãn cảm xúc rõ ràng.
-- Kích thước dữ liệu đủ lớn để nghiên cứu.
-- Nội dung là các câu phản hồi ngắn, phù hợp với bài toán phân loại văn bản.
+Mỗi file CSV có 2 cột: `text`, `label` (0 = tiêu cực, 1 = tích cực).
 
-## 3. Quy đổi nhãn
+`raw.csv` giữ nguyên text từ Hugging Face (Task 1 chỉ chuẩn hóa khoảng trắng). Dataset gốc UIT-VSFC đã ở dạng lowercase; Task 2 mới thực hiện lowercase và loại ký tự đặc biệt trên `cleaned.csv`.
 
-Dataset gốc có 3 nhãn sentiment:
+## 3. Thống kê dữ liệu
 
-- `0`: Negative
-- `1`: Neutral
-- `2`: Positive
+- Tổng cân bằng: 10.000 mẫu (5.000/lớp)
+- Train: 8.000 (4.000 negative + 4.000 positive)
+- Test: 2.000 (1.000 + 1.000)
 
-Trong dự án này, nhóm chỉ sử dụng bài toán nhị phân:
+## 4. Scripts liên quan
 
-- `0`: Negative / Tiêu cực
-- `1`: Positive / Tích cực
-
-Các mẫu Neutral đã được loại bỏ.
-
-## 4. Cấu trúc dữ liệu
-
-Sau khi xử lý Task 1, dữ liệu được lưu trong thư mục `data/` gồm:
-
-- `train.csv`: tập huấn luyện, chiếm 80% dữ liệu
-- `test.csv`: tập kiểm tra, chiếm 20% dữ liệu
-- `qa_sample_50.csv`: 50 dòng mẫu để QA kiểm tra nhanh
-- `README_DATA.md`: tài liệu mô tả dữ liệu
-
-Mỗi file `train.csv` và `test.csv` có 2 cột:
-
-| Cột | Ý nghĩa |
-|---|---|
-| `text` | Văn bản tiếng Việt |
-| `label` | Nhãn phân loại, 1 = tích cực, 0 = tiêu cực |
-
-## 5. Thống kê dữ liệu
-
-Số lượng dữ liệu trước khi cân bằng:
-
-- Negative: 7438
-- Positive: 8038
-
-Số lượng dữ liệu sau khi cân bằng:
-
-- Tổng số mẫu: 10000
-- Train: 8000
-- Test: 2000
-
-Phân bố nhãn trong train:
-
-- Negative `0`: 4000
-- Positive `1`: 4000
-
-Phân bố nhãn trong test:
-
-- Negative `0`: 1000
-- Positive `1`: 1000
-
-## 6. Kiểm tra chất lượng ban đầu
-
-Các bước đã thực hiện:
-
-- Loại bỏ mẫu Neutral.
-- Chuẩn hóa khoảng trắng.
-- Loại bỏ dòng rỗng.
-- Loại bỏ dữ liệu trùng lặp theo cột `text`.
-- Chia dữ liệu theo tỉ lệ 80/20.
-- Đảm bảo file được lưu ở định dạng CSV UTF-8.
-
-## 7. Ghi chú
-
-Task 1 chỉ thực hiện thu thập và chuẩn bị dữ liệu mẫu.  
-Các bước tiền xử lý sâu hơn như lowercase, loại bỏ ký tự đặc biệt, chuẩn hóa dấu câu, loại bỏ stopwords sẽ được thực hiện ở Task 2.
+| Task | Script | Input | Output |
+|------|--------|-------|--------|
+| 1 | `scripts/task1_prepare_data.py` | Hugging Face | `train/raw.csv`, `test/raw.csv` |
+| 2 | `scripts/task2_preprocess_text.py` | `*/raw.csv` | `*/cleaned.csv` |
+| 3 | `scripts/task3_build_stopwords.py` | `stopwords/raw.txt` | `stopwords/custom.txt` |
