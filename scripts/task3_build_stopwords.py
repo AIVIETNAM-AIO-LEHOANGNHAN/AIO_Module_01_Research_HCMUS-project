@@ -61,6 +61,9 @@ def download_raw_stopwords(
 ) -> None:
     """Tải baseline stopwords từ GitHub nếu chưa có."""
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    # QA [F3-04]: HTTP status is not checked. If the URL returns a 404 or redirect,
+    # the raw.txt will be overwritten with HTML/error content silently.
+    # Fix: check response.status == 200 before writing.
     with urllib.request.urlopen(url, timeout=30) as response:
         output_path.write_text(response.read().decode("utf-8"), encoding="utf-8")
 
@@ -85,6 +88,13 @@ def contains_any_token(phrase: str, token_set: set[str]) -> bool:
 
 def build_stopwords(raw_stopwords: set[str], protected_words: set[str]) -> tuple[set[str], set[str]]:
     """Tạo stopwords chính thức, loại entry chứa protected token."""
+    # QA [F3-02]: contains_any_token causes OVER-REMOVAL of multi-word phrases.
+    # 131 phrases like "cho nên" (therefore), "bằng không" (otherwise), "chưa bao giờ"
+    # (never) are removed because they contain a protected single token — even though
+    # the protected token ("nên", "không", "chưa") carries NO sentiment meaning in those
+    # compound phrases. Consider restricting protection to single-token entries only:
+    #   removed = {w for w in raw_stopwords if w in protected_words}
+    # (This is safe today because multi-word entries are never matched anyway — see F3-01)
     removed = {w for w in raw_stopwords if contains_any_token(w, protected_words)}
     stopwords = raw_stopwords - removed
     return stopwords, removed
@@ -103,6 +113,16 @@ def load_stopwords(path: Path = STOPWORDS_CUSTOM) -> set[str]:
 
 def remove_stopwords(text: str, stopwords: set[str]) -> str:
     """Loại stopwords khỏi câu (tokenize theo khoảng trắng)."""
+    # QA [F3-01] CRITICAL: text.split() produces single syllable/word tokens.
+    # custom.txt contains 1438/1799 multi-word entries (e.g. "bao giờ", "cho nên",
+    # "bao nhiêu"). These NEVER match because each token is a single word.
+    # Only the 361 single-word entries actually have any effect.
+    # Fix options:
+    #   (a) Apply Vietnamese word segmentation (underthesea/VnCoreNLP) before this call
+    #       so "bao giờ" becomes one token, OR
+    #   (b) Filter custom.txt to single-word entries only, OR
+    #   (c) Use regex phrase-matching for multi-word entries.
+    # Until fixed, 80% of the stopwords list is dead code.
     return " ".join(token for token in text.split() if token.lower() not in stopwords)
 
 

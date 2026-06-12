@@ -17,6 +17,9 @@ if str(SCRIPT_DIR) not in sys.path:
 
 from paths import TEST_CLEANED, TEST_RAW, TRAIN_CLEANED, TRAIN_RAW
 
+# QA [F2-02/F2-03]: % > < & are NOT in ALLOWED_PUNCTUATION and will be stripped.
+# "85% đúng" → "85 đúng", "turnitindotcom > 30%" → "turnitindotcom 30".
+# For sentiment classification this is acceptable, but document the decision explicitly.
 ALLOWED_PUNCTUATION = r".,?!:;\-'\"()"
 SPECIAL_CHAR_PATTERN = re.compile(
     rf"[^\w\s{re.escape(ALLOWED_PUNCTUATION)}]",
@@ -48,6 +51,10 @@ def preprocess_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
 def preprocess_file(input_path: Path, output_path: Path) -> pd.DataFrame:
     """Đọc CSV, tiền xử lý và ghi ra file cleaned."""
+    # QA [F2-01]: raw.csv was committed already lowercase with no emoji — only 31/8000
+    # rows differ between raw and cleaned (special char removal only). Verify that
+    # truly raw data from Hugging Face would flow through this function correctly
+    # before claiming the preprocessing pipeline is validated end-to-end.
     df = pd.read_csv(input_path, encoding="utf-8-sig")
     cleaned = preprocess_dataframe(df)
     output_path.parent.mkdir(parents=True, exist_ok=True)
