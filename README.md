@@ -27,7 +27,7 @@ Luồng dữ liệu được thiết kế như sau:
 3. **Model:** Phân loại văn bản dựa trên luật (Rule-based).
 4. **Evaluation:** Đánh giá và Phân tích lỗi (Error Analysis).
 5. **Output:** Dashboard với giao diện Streamlit hiển thị kết quả so sánh.
-## 6. Câu trúc Repository
+## 6. Cấu trúc Repository
 
 ```text
 ├── data/           # Chứa raw data, processed data, stopwords.txt
