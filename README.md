@@ -30,13 +30,21 @@ Luồng dữ liệu được thiết kế như sau:
 ## 6. Cấu trúc Repository
 
 ```text
-├── data/           # Chứa raw data, processed data, stopwords.txt
-├── models/         # Chứa logic phân loại và các hàm so sánh
-├── pipeline/       # Chứa script xử lý luồng (End-to-end)
-├── docs/           # Báo cáo Overleaf và tài liệu nghiên cứu
-├── app.py          # Ứng dụng Streamlit minh họa
-├── requirements    # Chứa các thư viện đã cài trong dự án
-└── README.md       # Tài liệu dự án
+├── data/
+│   ├── train/          # raw.csv, cleaned.csv
+│   ├── test/           # raw.csv, cleaned.csv
+│   ├── stopwords/      # raw.txt, custom.txt, protected.txt
+│   └── qa_sample_50.csv
+├── scripts/
+│   ├── task1_prepare_data.py
+│   ├── task2_preprocess_text.py
+│   └── task3_build_stopwords.py
+├── models/             # Logic phân loại và các hàm so sánh
+├── pipeline/           # Script xử lý luồng end-to-end
+├── docs/               # Tài liệu nghiên cứu
+├── app.py              # Ứng dụng Streamlit minh họa
+├── requirements.txt
+└── README.md
 ```
 ## 7. Quy trình cộng tác
 ```text
