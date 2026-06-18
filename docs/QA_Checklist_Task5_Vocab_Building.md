@@ -37,8 +37,8 @@ py -m pytest tests/ -v
 |---|-----------|----------|-----------------|--------|-------|
 | T5-01 | `load_stopwords("data/stopwords/custom.txt")` trả về set không rỗng | set, >1500 entries | ~1930 entries | ✅ PASS | |
 | T5-02 | Protected words không có trong `custom.txt` | 0 overlap | 0 overlap | ✅ PASS | Khớp quyết định team (comment PR) |
-| T5-03 | `tokenize("giảng viên nhiệt tình")` giữ compound với `_` | `giảng_viên`, `nhiệt_tình` | `giảng viên`, `nhiệt tình` (space) | ❌ FAIL | Code đang `replace('_',' ')` — ngược spec |
-| T5-04 | `tokenize()` dùng `ViTokenizer.tokenize()` (spec) | Dùng API chuẩn | Dùng `spacy_tokenize()[0]` | ⚠️ WARN | Khác spec nhưng vẫn tách được compound |
+| T5-03 | `tokenize("giảng viên nhiệt tình")` giữ compound với `_` | `giảng_viên`, `nhiệt_tình` | `giảng_viên`, `nhiệt_tình` (space) | ✅ PASS | |
+| T5-04 | `tokenize()` dùng `ViTokenizer.tokenize()` (spec) | Dùng API chuẩn | Dùng API chuẩn | ✅ PASS |  |
 | T5-05 | `build_vocab()` chạy trên `train/cleaned.csv` | Không exception | Chạy được (commented main) | ⚠️ WARN | Không có `if __name__` — phải gọi thủ công |
 | T5-06 | Output file names theo spec | `pos_vocab.json`, `neg_vocab.json` | `pos_counter.json`, `neg_counter.json` | ❌ FAIL | Tên file khác spec Jira |
 | T5-07 | Label routing: label=1 → pos, label=0 → neg | Đúng counter | Đúng | ✅ PASS | |
