@@ -39,10 +39,10 @@ py -m pytest tests/ -v
 | T5-02 | Protected words không có trong `custom.txt` | 0 overlap | 0 overlap | ✅ PASS | Khớp quyết định team (comment PR) |
 | T5-03 | `tokenize("giảng viên nhiệt tình")` giữ compound với `_` | `giảng_viên`, `nhiệt_tình` | `giảng_viên`, `nhiệt_tình` (space) | ✅ PASS | |
 | T5-04 | `tokenize()` dùng `ViTokenizer.tokenize()` (spec) | Dùng API chuẩn | Dùng API chuẩn | ✅ PASS |  |
-| T5-05 | `build_vocab()` chạy trên `train/cleaned.csv` | Không exception | Chạy được (commented main) | ⚠️ WARN | Không có `if __name__` — phải gọi thủ công |
-| T5-06 | Output file names theo spec | `pos_vocab.json`, `neg_vocab.json` | `pos_counter.json`, `neg_counter.json` | ❌ FAIL | Tên file khác spec Jira |
+| T5-05 | `build_vocab()` chạy trên `train/cleaned.csv` | Không exception | Không exception | ✅ PASS | |
+| T5-06 | Output file names theo spec | `pos_vocab.json`, `neg_vocab.json` | `pos_vocab.json`, `neg_vocab.json` | ✅ PASSL |  |
 | T5-07 | Label routing: label=1 → pos, label=0 → neg | Đúng counter | Đúng | ✅ PASS | |
-| T5-08 | `min_freq >= 5` lọc noise | Không có token freq < 5 | Nhiều token freq 1–4 | ❌ FAIL | Chưa implement |
+| T5-08 | `min_freq >= 5` lọc noise | Không có token freq < 5 | Không có token freq < 5 | ✅ PASS |  |
 | T5-09 | Sentiment words (`rất`, `tốt`, `kém`, `không`) có trong vocab | Có trong pos/neg | Có | ✅ PASS | Nhờ custom.txt đã loại protected |
 | T5-10 | Stopwords trong `custom.txt` bị loại khỏi vocab | Không xuất hiện | Cần spot-check | ⚠️ WARN | VD: `và`, `của` không nên có |
 
