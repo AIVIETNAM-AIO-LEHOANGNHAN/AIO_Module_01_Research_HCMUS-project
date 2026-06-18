@@ -37,12 +37,12 @@ py -m pytest tests/ -v
 |---|-----------|----------|-----------------|--------|-------|
 | T5-01 | `load_stopwords("data/stopwords/custom.txt")` trả về set không rỗng | set, >1500 entries | ~1930 entries | ✅ PASS | |
 | T5-02 | Protected words không có trong `custom.txt` | 0 overlap | 0 overlap | ✅ PASS | Khớp quyết định team (comment PR) |
-| T5-03 | `tokenize("giảng viên nhiệt tình")` giữ compound với `_` | `giảng_viên`, `nhiệt_tình` | `giảng_viên`, `nhiệt_tình` (space) | ✅ PASS | |
+| T5-03 | `tokenize("giảng viên nhiệt tình")` giữ compound với `_` | `giảng_viên`, `nhiệt_tình` | `giảng_viên`, `nhiệt_tình` (space) | ✅ PASS | Đã sửa |
 | T5-04 | `tokenize()` dùng `ViTokenizer.tokenize()` (spec) | Dùng API chuẩn | Dùng API chuẩn | ✅ PASS |  |
-| T5-05 | `build_vocab()` chạy trên `train/cleaned.csv` | Không exception | Không exception | ✅ PASS | |
-| T5-06 | Output file names theo spec | `pos_vocab.json`, `neg_vocab.json` | `pos_vocab.json`, `neg_vocab.json` | ✅ PASSL |  |
+| T5-05 | `build_vocab()` chạy trên `train/cleaned.csv` | Không exception | Không exception | ✅ PASS | Đã cập nhật |
+| T5-06 | Output file names theo spec | `pos_vocab.json`, `neg_vocab.json` | `pos_vocab.json`, `neg_vocab.json` | ✅ PASSL | Đã sửa |
 | T5-07 | Label routing: label=1 → pos, label=0 → neg | Đúng counter | Đúng | ✅ PASS | |
-| T5-08 | `min_freq >= 5` lọc noise | Không có token freq < 5 | Không có token freq < 5 | ✅ PASS |  |
+| T5-08 | `min_freq >= 5` lọc noise | Không có token freq < 5 | Không có token freq < 5 | ✅ PASS | Đã sửa |
 | T5-09 | Sentiment words (`rất`, `tốt`, `kém`, `không`) có trong vocab | Có trong pos/neg | Có | ✅ PASS | Nhờ custom.txt đã loại protected |
 | T5-10 | Stopwords trong `custom.txt` bị loại khỏi vocab | Không xuất hiện | Cần spot-check | ⚠️ WARN | VD: `và`, `của` không nên có |
 
@@ -55,8 +55,8 @@ py -m pytest tests/ -v
 | DV5-01 | Protected ∩ custom = ∅ | 0 | 0 | ✅ PASS |
 | DV5-02 | `pos_counter.json` hợp lệ JSON UTF-8 | Yes | Yes | ✅ PASS |
 | DV5-03 | `neg_counter.json` hợp lệ JSON UTF-8 | Yes | Yes | ✅ PASS |
-| DV5-04 | Không có punctuation trong vocab | 0 keys | `,`: 2817, `.`: 3846 (pos) | ❌ FAIL | Dấu câu bị đếm như từ |
-| DV5-05 | Compound words dùng `_` | 100% | 0% (dùng space) | ❌ FAIL | Xem T5-03 |
+| DV5-04 | Không có punctuation trong vocab | 0 keys | 0 keys | ✅ PASS | Đã sửa |
+| DV5-05 | Compound words dùng `_` | 100% | 100% | ✅ PASS | Đã sửa |
 | DV5-06 | pos + neg có từ mang sentiment | có `tốt`, `rất`… | có | ✅ PASS |
 | DV5-07 | Vocab size hợp lý sau min_freq | nhỏ hơn hiện tại | pos: 1265, neg: 2315 (chưa lọc) | ❌ FAIL | Chưa có min_freq |
 
@@ -79,9 +79,9 @@ py -m pytest tests/ -v
 | # | Tiêu chí | Status | Ghi chú |
 |---|---------|--------|---------|
 | C5-01 | `build_vocab.py` chạy ổn trên train | ⚠️ WARN | Chạy được nhưng thiếu entry point |
-| C5-02 | `pos_vocab.json` & `neg_vocab.json` trong `models/vocab/` | ❌ FAIL | Tên file khác spec |
+| C5-02 | `pos_vocab.json` & `neg_vocab.json` trong `models/vocab/` | ✅ PASS | Đã sửa 
 | C5-03 | `tokenize()` modularized tại `utils/text_utils.py` | ✅ PASS | File tồn tại |
-| C5-04 | QA verify: không garbage, compound có `_` | ❌ FAIL | Có punctuation; compound dùng space |
+| C5-04 | QA verify: không garbage, compound có `_` | ✅ PASS | Đã sửa |
 
 ---
 
