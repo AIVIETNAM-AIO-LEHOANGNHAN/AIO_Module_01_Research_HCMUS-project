@@ -3,12 +3,9 @@ from collections import Counter
 
 def tokenize(text):
     """
-    Tokenize sử ddungjpackage pyvi
+    Tokenize sử package pyvi
     """
-    raw_tokens = ViTokenizer.spacy_tokenize(text)[0]
-
-    # Remove the '_' inside each token
-    tokens = [token.replace('_',' ') for token in raw_tokens]
+    tokens = ViTokenizer.spacy_tokenize(text)[0]
     return tokens
 
 def load_stopwords(file_path):
