@@ -8,9 +8,9 @@ def tokenize(text):
     tokens = ViTokenizer.spacy_tokenize(text)[0]
     return tokens
 
-def load_stopwords(file_path):
+def load_words(file_path):
     """
-    Đọc file text chứa stopwords (mỗi từ một dòng) và trả về một set.
+    Đọc file text chứa words (mỗi từ một dòng) và trả về một set.
     """
     try:
         with open(file_path, "r", encoding="utf-8") as f:

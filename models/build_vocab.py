@@ -1,6 +1,6 @@
 from collections import Counter
 import pandas as pd
-from utils.text_utils import tokenize, load_stopwords
+from utils.text_utils import tokenize
 import json
 import os
 import regex as re
@@ -12,7 +12,7 @@ def filter_min_freq(vocab, min_freq):
             del vocab[key]
 
 def build_vocab(data_path):
-    
+
     current_dir = os.path.dirname(os.path.abspath(__file__))
     vocab_dir = os.path.join(current_dir, "vocab")
     os.makedirs(vocab_dir, exist_ok=True)
@@ -27,9 +27,7 @@ def build_vocab(data_path):
         # Remove punctuation and number inside input text
         text = re.sub(r'[\p{P}\p{N}+]', '', text)
         tokens = tokenize(text)
-        stopwords = load_stopwords(STOPWORDS_CUSTOM)
-        cleaned_words = [token for token in tokens if token not in stopwords]
-        token_freq = Counter(cleaned_words)
+        token_freq = Counter(tokens)
         
         if row['label'] == 1:
             pos_counter += token_freq
