@@ -2,28 +2,28 @@
 
 import pytest
 
-from utils.text_utils import load_stopwords, tokenize
+from utils.text_utils import load_words, tokenize
 
 
 class TestLoadStopwords:
     def test_loads_non_empty_set(self):
-        stopwords = load_stopwords("data/stopwords/custom.txt")
+        stopwords = load_words("data/stopwords/custom.txt")
         assert isinstance(stopwords, set)
         assert len(stopwords) > 0
 
     def test_ignores_blank_lines(self, tmp_path):
         path = tmp_path / "stopwords.txt"
         path.write_text("một\n\n  hai  \n", encoding="utf-8")
-        assert load_stopwords(str(path)) == {"một", "hai"}
+        assert load_words(str(path)) == {"một", "hai"}
 
     def test_missing_file_returns_empty_set(self, tmp_path):
         missing = tmp_path / "missing.txt"
-        assert load_stopwords(str(missing)) == set()
+        assert load_words(str(missing)) == set()
 
     def test_protected_words_not_in_custom(self):
         """DV5-01: protected tokens must stay out of custom.txt (Task 3 guarantee)."""
-        custom = load_stopwords("data/stopwords/custom.txt")
-        protected = load_stopwords("data/stopwords/protected.txt")
+        custom = load_words("data/stopwords/custom.txt")
+        protected = load_words("data/stopwords/protected.txt")
         assert protected.isdisjoint(custom)
 
 
