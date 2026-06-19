@@ -47,8 +47,8 @@ class TestBuildVocab:
             lambda _: load_words("data/stopwords/custom.txt"),
         )
         assert build_vocab(str(sample_csv)) is True
-        assert (tmp_path / "vocab" / "pos_counter.json").exists()
-        assert (tmp_path / "vocab" / "neg_counter.json").exists()
+        assert (tmp_path / "vocab" / "pos_vocab.json").exists()
+        assert (tmp_path / "vocab" / "neg_vocab.json").exists()
 
     def test_sentiment_words_preserved_in_vocab(self, sample_csv, monkeypatch, tmp_path):
         """Protected/sentiment tokens (not in custom.txt) must appear in counters."""
@@ -61,8 +61,8 @@ class TestBuildVocab:
             lambda _: load_words("data/stopwords/custom.txt"),
         )
         build_vocab(str(sample_csv))
-        pos = json.loads((tmp_path / "vocab" / "pos_counter.json").read_text(encoding="utf-8"))
-        neg = json.loads((tmp_path / "vocab" / "neg_counter.json").read_text(encoding="utf-8"))
+        pos = json.loads((tmp_path / "vocab" / "pos_vocab.json").read_text(encoding="utf-8"))
+        neg = json.loads((tmp_path / "vocab" / "neg_vocab.json").read_text(encoding="utf-8"))
         assert pos.get("rất", 0) >= 5
         assert pos.get("tốt", 0) >= 5
         assert neg.get("kém", 0) >= 5
@@ -77,8 +77,8 @@ class TestBuildVocab:
             lambda _: set(),
         )
         build_vocab(str(sample_csv))
-        pos = json.loads((tmp_path / "vocab" / "pos_counter.json").read_text(encoding="utf-8"))
-        neg = json.loads((tmp_path / "vocab" / "neg_counter.json").read_text(encoding="utf-8"))
+        pos = json.loads((tmp_path / "vocab" / "pos_vocab.json").read_text(encoding="utf-8"))
+        neg = json.loads((tmp_path / "vocab" / "neg_vocab.json").read_text(encoding="utf-8"))
         assert sum(pos.values()) > 0
         assert sum(neg.values()) > 0
         assert "tốt" in pos
@@ -90,21 +90,21 @@ class TestVocabArtifacts:
 
     @pytest.fixture
     def pos_vocab(self):
-        path = Path("models/vocab/pos_counter.json")
+        path = Path("models/vocab/pos_vocab.json")
         if not path.exists():
-            pytest.skip("pos_counter.json not generated yet")
+            pytest.skip("pos_vocab.json not generated yet")
         return json.loads(path.read_text(encoding="utf-8"))
 
     @pytest.fixture
     def neg_vocab(self):
-        path = Path("models/vocab/neg_counter.json")
+        path = Path("models/vocab/neg_vocab.json")
         if not path.exists():
-            pytest.skip("neg_counter.json not generated yet")
+            pytest.skip("neg_vocab.json not generated yet")
         return json.loads(path.read_text(encoding="utf-8"))
 
     def test_vocab_files_exist(self):
-        assert Path("models/vocab/pos_counter.json").exists()
-        assert Path("models/vocab/neg_counter.json").exists()
+        assert Path("models/vocab/pos_vocab.json").exists()
+        assert Path("models/vocab/neg_vocab.json").exists()
 
     def test_no_punctuation_tokens(self, pos_vocab, neg_vocab):
         """DV5-04: punctuation should not be counted as vocabulary."""
