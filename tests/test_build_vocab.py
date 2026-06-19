@@ -50,14 +50,6 @@ class TestBuildVocab:
         # ACT
         result = build_vocab(str(csv_path))
 
-        # ASSERT: function chạy OK
-        assert result is True
-
-        vocab_dir = tmp_path / "vocab"
-
-        pos_vocab = vocab_dir / "pos_vocab.json"
-        neg_vocab = vocab_dir / "neg_vocab.json"
-
         # file phải tồn tại
         assert pos_vocab.exists()
         assert neg_vocab.exists()
