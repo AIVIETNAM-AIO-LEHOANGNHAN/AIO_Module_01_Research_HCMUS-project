@@ -40,7 +40,7 @@ class TestBuildVocab:
         # ASSERT return
         assert result is True
 
-        vocab_dir = tmp_path / "vocab"
+        vocab_dir = Path("models/vocab")
         pos_file = vocab_dir / "pos_vocab.json"
         neg_file = vocab_dir / "neg_vocab.json"
 
@@ -63,7 +63,7 @@ class TestBuildVocab:
     def test_label_routing(self, sample_csv, tmp_path):
         build_vocab(str(sample_csv))
 
-        vocab_dir = tmp_path / "vocab"
+        vocab_dir = Path("models/vocab")
         pos_vocab = json.loads((vocab_dir / "pos_vocab.json").read_text(encoding="utf-8"))
         neg_vocab = json.loads((vocab_dir / "neg_vocab.json").read_text(encoding="utf-8"))
 
