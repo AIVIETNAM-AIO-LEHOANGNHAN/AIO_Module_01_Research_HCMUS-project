@@ -36,20 +36,45 @@ def sample_csv(tmp_path):
 
 
 class TestBuildVocab:
-    def test_build_vocab_returns_true(self, sample_csv, monkeypatch, tmp_path):
-        vocab_dir = tmp_path / "vocab"
-        monkeypatch.setattr(
-            "models.build_vocab.os.path.dirname",
-            lambda _: str(tmp_path),
+    def test_build_vocab_success_and_outputs(self, tmp_path):
+        # tạo dữ liệu giả
+        csv_path = tmp_path / "train.csv"
+        csv_path.write_text(
+            "text,label\n"
+            "giảng viên dạy tốt,1\n"
+            "phòng học rất kém,0\n"
+            "giảng viên rất tốt,1\n"
+            "phòng học kém chất lượng,0\n",
+            encoding="utf-8"
         )
-        monkeypatch.setattr(
-            "models.build_vocab.load_stopwords",
-            lambda _: load_words("data/stopwords/custom.txt"),
-        )
-        assert build_vocab(str(sample_csv)) is True
-        assert (tmp_path / "vocab" / "pos_vocab.json").exists()
-        assert (tmp_path / "vocab" / "neg_vocab.json").exists()
+        # ACT
+        result = build_vocab(str(csv_path))
 
+        # ASSERT: function chạy OK
+        assert result is True
+
+        vocab_dir = tmp_path / "vocab"
+
+        pos_file = vocab_dir / "pos_vocab.json"
+        neg_file = vocab_dir / "neg_vocab.json"
+
+        # file phải tồn tại
+        assert pos_file.exists()
+        assert neg_file.exists()
+        
+        # ASSERT: nội dung đúng
+        pos_vocab = json.loads(pos_file.read_text(encoding="utf-8"))
+        neg_vocab = json.loads(neg_file.read_text(encoding="utf-8"))
+
+        # phải có dữ liệu
+        assert len(pos_vocab) > 0
+        assert len(neg_vocab) > 0
+
+        # kiểm tra logic sentiment
+        assert any("tốt" in k for k in pos_vocab.keys())
+        assert any("kém" in k for k in neg_vocab.keys())
+
+    
     def test_sentiment_words_preserved_in_vocab(self, sample_csv, monkeypatch, tmp_path):
         """Protected/sentiment tokens (not in custom.txt) must appear in counters."""
         monkeypatch.setattr(
