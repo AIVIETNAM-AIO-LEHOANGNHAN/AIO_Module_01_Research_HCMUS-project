@@ -43,20 +43,17 @@ class TestTokenize:
         assert tokenize("   ") == []
 
     def test_compound_words_behavior(self):
-        """
-        PyVi behavior: compound words may be joined by '_'
-        but we only test consistency, not exact implementation.
-        """
         tokens = tokenize("giảng viên nhiệt tình")
 
-        # must contain at least one meaningful token
+        assert isinstance(tokens, list)
         assert len(tokens) > 0
         assert all(isinstance(t, str) for t in tokens)
 
     def test_known_words_preserved(self):
         tokens = tokenize("giảng viên dạy tốt")
 
-        # relaxed assertion (không phụ thuộc exact tokenizer output)
-        joined = "_".join(tokens)
+        assert isinstance(tokens, list)
+        assert len(tokens) > 0
 
-        assert "giảng" in joined or "viên" in joined or "giảng_viên" in tokens
+        original_words = {"giảng", "viên", "dạy", "tốt"}
+        assert len(original_words.intersection(set(tokens))) > 0
