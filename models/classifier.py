@@ -1,4 +1,4 @@
-from utils.text_utils import tokenize, load_stopwords
+from utils.text_utils import tokenize, load_words
 from scripts.paths import STOPWORDS_CUSTOM, TRAIN_CLEANED, STOPWORDS_PROTECTED, POS_VOCAB, NEG_VOCAB
 import json
 
@@ -12,8 +12,8 @@ class Classifier:
 
     def predict(self, text):
         tokens = tokenize(text)
-        stopwords = load_stopwords(self.stopwords)
-        negative_words = load_stopwords(self.negative_words)
+        stopwords = load_words(self.stopwords)
+        negative_words = load_words(self.negative_words)
         if self.use_stopwords_retrieval:
             tokens = [token for token in tokens if token not in stopwords]
 
