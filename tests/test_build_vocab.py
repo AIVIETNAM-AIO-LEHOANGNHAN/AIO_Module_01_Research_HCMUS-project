@@ -58,6 +58,12 @@ class TestBuildVocab:
         pos_vocab = json.loads(pos_file.read_text(encoding="utf-8"))
         neg_vocab = json.loads(neg_file.read_text(encoding="utf-8"))
 
+        vocab_dir = Path("models/vocab")
+        pos_vocab = vocab_dir / "pos_vocab.json"
+        neg_vocab = vocab_dir / "neg_vocab.json"
+        
+        assert pos_vocab.exists()
+        assert neg_vocab.exists()
         # phải có dữ liệu
         assert len(pos_vocab) > 0
         assert len(neg_vocab) > 0
