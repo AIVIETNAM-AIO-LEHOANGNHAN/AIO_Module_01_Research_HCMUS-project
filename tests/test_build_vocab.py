@@ -8,7 +8,7 @@ import pandas as pd
 import pytest
 
 from models.build_vocab import build_vocab
-from utils.text_utils import load_stopwords
+from utils.text_utils import load_words
 
 
 @pytest.fixture
@@ -44,7 +44,7 @@ class TestBuildVocab:
         )
         monkeypatch.setattr(
             "models.build_vocab.load_stopwords",
-            lambda _: load_stopwords("data/stopwords/custom.txt"),
+            lambda _: load_words("data/stopwords/custom.txt"),
         )
         assert build_vocab(str(sample_csv)) is True
         assert (tmp_path / "vocab" / "pos_counter.json").exists()
@@ -58,7 +58,7 @@ class TestBuildVocab:
         )
         monkeypatch.setattr(
             "models.build_vocab.load_stopwords",
-            lambda _: load_stopwords("data/stopwords/custom.txt"),
+            lambda _: load_words("data/stopwords/custom.txt"),
         )
         build_vocab(str(sample_csv))
         pos = json.loads((tmp_path / "vocab" / "pos_counter.json").read_text(encoding="utf-8"))
