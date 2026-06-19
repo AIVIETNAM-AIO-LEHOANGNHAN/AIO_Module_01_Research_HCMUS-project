@@ -55,12 +55,12 @@ class TestBuildVocab:
 
         vocab_dir = tmp_path / "vocab"
 
-        pos_file = vocab_dir / "pos_vocab.json"
-        neg_file = vocab_dir / "neg_vocab.json"
+        pos_vocab = vocab_dir / "pos_vocab.json"
+        neg_vocab = vocab_dir / "neg_vocab.json"
 
         # file phải tồn tại
-        assert pos_file.exists()
-        assert neg_file.exists()
+        assert pos_vocab.exists()
+        assert neg_vocab.exists()
         
         # ASSERT: nội dung đúng
         pos_vocab = json.loads(pos_file.read_text(encoding="utf-8"))
