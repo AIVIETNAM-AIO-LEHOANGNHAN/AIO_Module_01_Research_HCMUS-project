@@ -1,127 +1,119 @@
 import pytest
-import json
 from models.classifier import Classifier
-
+from scripts.paths import POS_VOCAB, NEG_VOCAB, STOPWORDS_CUSTOM, STOPWORDS_PROTECTED
 
 # FIXTURE
 
 @pytest.fixture
-def classifier(tmp_path):
-    # create fake vocab files (simulate JSON)
-    pos_file = tmp_path / "pos.json"
-    neg_file = tmp_path / "neg.json"
-
-    pos_file.write_text(json.dumps({"hay": 1, "tốt": 1, "đẹp": 1}), encoding="utf-8")
-    neg_file.write_text(json.dumps({"dở": 1, "tệ": 1, "chán": 1}), encoding="utf-8")
-
+def classifier():
     return Classifier(
-        pos_count=str(pos_file),
-        neg_count=str(neg_file),
+        pos_count=POS_VOCAB,
+        neg_count=NEG_VOCAB,
         use_stopwords_retrieval=False,
-        stopwords=None,
-        negative_words=None
+        stopwords=STOPWORDS_CUSTOM,
+        negative_words=STOPWORDS_PROTECTED,
     )
 
-# 1. FUNCTIONAL TESTING
+# 1. FUNCTIONAL TESTING 
 
-def test_ft01_positive(classifier):
-    assert classifier.predict("dạy rất hay") == "Positive"
-
-
-def test_ft02_negative(classifier):
-    assert classifier.predict("dở") == "Negative"
-
-
-def test_ft03_mixed_sentiment(classifier):
-    # hay (+1), dở (-1)
-    assert classifier.predict("dạy hay nhưng dở") == "Negative"
-
-
-def test_ft04_batch_prediction(classifier):
-    inputs = ["dạy hay", "dở", "không tốt"]
-    outputs = classifier.predict_batch(inputs)
-
-    assert outputs == ["Positive", "Negative", "Negative"]
-
-
-def test_ft05_empty_input(classifier):
-    assert classifier.predict("") == "Negative"
-
-
-# 2. DATA VALIDATION TESTING
-
-def test_dv01_tokenization(classifier):
-    tokens = classifier.predict("dạy quá chán")
-    assert tokens in ["Positive", "Negative"]
-
-
-def test_dv02_vocab_loading(classifier):
-    with open(classifier.pos_count, "r", encoding="utf-8") as f:
-        data = json.load(f)
-    assert isinstance(data, dict)
-
-
-def test_dv03_pos_vocab_trigger(classifier):
+def test_positive_single_token(classifier):
     assert classifier.predict("hay") == "Positive"
 
 
-def test_dv04_neg_vocab_trigger(classifier):
+def test_negative_single_token(classifier):
     assert classifier.predict("dở") == "Negative"
 
 
-def test_dv05_stopwords_mode_no_crash(classifier):
-    classifier.use_stopwords_retrieval = True
-    result = classifier.predict("môn học này quá chán")
-    assert result in ["Positive", "Negative"]
+def test_mixed_sentiment_score_zero(classifier):
+    # hay (+1) + dở (-1) => score <= 0
+    assert classifier.predict("dạy hay nhưng dở") == "Negative"
 
 
-def test_dv06_batch_stability(classifier):
-    result = classifier.predict_batch(["hay", "dở"])
-    assert len(result) == 2
+def test_multiple_positive_words(classifier):
+    assert classifier.predict("hay tốt đẹp") == "Positive"
 
 
-# 3. EDGE CASE TESTING
+def test_multiple_negative_words(classifier):
+    assert classifier.predict("dở tệ chán") == "Negative"
 
-def test_ec01_empty_string(classifier):
+
+def test_empty_input(classifier):
     assert classifier.predict("") == "Negative"
 
 
-def test_ec02_only_noise(classifier):
+def test_batch_prediction(classifier):
+    inputs = ["hay", "dở", "không tốt"]
+    expected = ["Positive", "Negative", "Negative"]
+    assert classifier.predict_batch(inputs) == expected
+
+# 2. DATA VALIDATION TESTING 
+
+def test_vocab_files_are_valid_json():
+    import json
+
+    with open(POS_VOCAB, "r", encoding="utf-8") as f:
+        pos = json.load(f)
+
+    with open(NEG_VOCAB, "r", encoding="utf-8") as f:
+        neg = json.load(f)
+
+    assert isinstance(pos, dict)
+    assert isinstance(neg, dict)
+
+
+def test_stopwords_toggle_does_not_crash(classifier):
+    classifier.use_stopwords_retrieval = True
+    assert classifier.predict("môn học này quá chán") in ["Positive", "Negative"]
+
+
+def test_protected_words_still_effective(classifier):
+    classifier.use_stopwords_retrieval = True
+    assert classifier.predict("không tốt") == "Negative"
+
+# 3. EDGE CASE TESTING 
+
+def test_only_stopwords(classifier):
     assert classifier.predict("và là của trong") == "Negative"
 
 
-def test_ec03_unknown_words(classifier):
+def test_unknown_words(classifier):
     assert classifier.predict("abc xyz qwe") == "Negative"
 
 
-def test_ec04_punctuation_noise(classifier):
+def test_noise_punctuation(classifier):
     assert classifier.predict("!!! hay ???") == "Positive"
 
 
-def test_ec05_double_negation(classifier):
-    # BUG EXPECTATION TEST (current code may FAIL)
+def test_negation_simple(classifier):
+    # không + hay => Negative
+    assert classifier.predict("không hay") == "Negative"
+
+
+def test_double_negation_expected_behavior(classifier):
+    # không không tốt => expected Positive (spec)
     result = classifier.predict("không không tốt")
-    assert result in ["Positive", "Negative"]  # allow instability due to bug
+    assert result == "Positive"
 
 
-def test_ec06_negation_case(classifier):
-    result = classifier.predict("không hay")
-    assert result in ["Positive", "Negative"]
+def test_negation_chain(classifier):
+    # không chẳng tốt => expected Positive
+    result = classifier.predict("không chẳng tốt")
+    assert result == "Positive"
 
 
-def test_ec07_noise_mixed(classifier):
+def test_mixed_noise_and_vocab(classifier):
     assert classifier.predict("@@ dạy hay ## nhưng dở !!") == "Negative"
 
+# 4. STOPWORDS BEHAVIOR 
 
-# 4. STOPWORDS MODE TEST
-
-def test_stopwords_toggle_effect(classifier):
+def test_stopwords_on_off_consistency(classifier):
     text = "môn học hay"
 
     classifier.use_stopwords_retrieval = False
-    r1 = classifier.predict(text)
+    result_off = classifier.predict(text)
 
     classifier.use_stopwords_retrieval = True
-    r2 = classifier.predict(text)
+    result_on = classifier.predict(text)
 
-    assert r1 == r2
+    # sentiment should NOT change due to stopwords removal
+    assert result_off == result_on
