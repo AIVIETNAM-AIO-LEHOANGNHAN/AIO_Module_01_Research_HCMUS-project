@@ -5,8 +5,11 @@ def tokenize(text):
     """
     Tokenize sử package pyvi
     """
-    tokens = ViTokenizer.spacy_tokenize(text)[0]
-    return tokens
+    if text:
+        tokens = ViTokenizer.spacy_tokenize(text)[0]
+        return tokens
+    else:
+        return list()
 
 def load_words(file_path):
     """
