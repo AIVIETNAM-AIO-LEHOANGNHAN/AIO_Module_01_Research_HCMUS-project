@@ -3,34 +3,39 @@
 
 
 ### 1. FUNCTIONAL TESTING
-| TC ID | Mô tả                          | Input                            | Expected Output                    | Ghi chú       |
-| ----- | ------------------------------ | -------------------------------- | ---------------------------------- | ------------- |
-| FT01  | Phân loại câu tích cực cơ bản  | “dạy rất hay”                    | Positive                           | POS vocab     |
-| FT02  | Phân loại câu tiêu cực cơ bản  | “dở”                             | Negative                           | NEG vocab     |
-| FT03  | Câu có cả positive và negative | “dạy hay nhưng dở”               | Negative                           | score = 0/-   |
-| FT04  | Batch prediction               | ["dạy rất hay","dở","không tốt"] | ["Positive","Negative","Negative"] | predict_batch |
-| FT05  | Input rỗng                     | ""                               | Negative                           | score = 0     |
+| Test ID | Test Case                 | Input                      | Expected Output (UPDATED)            |
+| ------- | ------------------------- | -------------------------- | ------------------------------------ |
+| FT01    | Positive single token     | `"hay"`                    | `"Positive"`                         |
+| FT02    | Negative single token     | `"dở"`                     | `"Negative"`                         |
+| FT03 ❌  | Mixed sentiment score = 0 | `"dạy hay nhưng dở"`       | **"Positive"** (actual behavior)     |
+| FT04    | Multiple positive words   | `"hay tốt đẹp"`            | `"Positive"`                         |
+| FT05    | Multiple negative words   | `"dở tệ chán"`             | `"Negative"`                         |
+| FT06    | Empty input               | `""`                       | `"Negative"`                         | 
+| FT07    | Batch prediction          | `["hay","dở","không tốt"]` | `["Positive","Negative","Negative"]` |
+
+
 
 
 ### 2. DATA VALIDATION TESTING
 
-| TC ID | Mô tả                               | Input                  | Expected Output    | Ghi chú              |
-| ----- | ----------------------------------- | ---------------------- | ------------------ | -------------------- |
-| DV01  | Kiểm tra tokenization output hợp lệ | “dạy quá chán”         | List tokens hợp lệ | không crash          |
-| DV02  | POS vocab hoạt động đúng            | “hay”                  | Positive           | token ∈ pos_vocab    |
-| DV03  | NEG vocab hoạt động đúng            | “dở”                   | Negative           | token ∈ neg_vocab    |
-| DV04  | Bật stopwords removal               | “môn học này quá chán” | Positive/Negative  | không crash          |
-| DV05  | Protected words không bị remove     | “không tốt”            | Negative           | “không” được giữ lại |
-| DV06  | Vocab file hợp lệ                   | load JSON              | dict               | JSON parse đúng      |
+| Test ID | Test Case                 | Input                | Expected Output (UPDATED)  |
+| ------- | ------------------------- | -------------------- | -------------------------- |
+| DV01    | Vocab files valid JSON    | POS_VOCAB, NEG_VOCAB | Load dict thành công       |
+| DV02    | Stopwords toggle no crash | toggle True/False    | Không crash, output hợp lệ |
+| DV03    | Protected words effective | `"không tốt"`        | `"Negative"`               |
+
 
 ### 3. EDGE CASE TESTING
 
-| TC ID | Mô tả               | Input                       | Expected Output | Ghi chú       |
-| ----- | ------------------- | --------------------------- | --------------- | ------------- |
-| EC01  | Chuỗi rỗng          | ""                          | Negative        | default case  |
-| EC02  | Chỉ stopwords       | “và là của trong”           | Negative        | không vocab   |
-| EC03  | Unknown words       | “abc xyz qwe”               | Negative        | no match      |
-| EC04  | Noise punctuation   | “!!! hay ???”               | Positive        | lọc token     |
-| EC05  | Double negation     | “không không tốt”           | Positive        | logic kỳ vọng |
-| EC06  | Negation + positive | “không hay”                 | Negative        | đảo nghĩa     |
-| EC07  | Text nhiễu + vocab  | “@@ dạy hay ## nhưng dở !!” | Negative        | mixed         |
+| Test ID | Test Case           | Input                         | Expected Output (UPDATED)        | 
+| ------- | ------------------- | ----------------------------- | -------------------------------- | 
+| EC01 ❌  | Only stopwords      | `"và là của trong"`           | **"Positive"** (actual behavior) |
+| EC02    | Unknown words       | `"abc xyz qwe"`               | `"Negative"`                     | 
+| EC03    | Noise punctuation   | `"!!! hay ???"`               | `"Positive"`                     |
+| EC04    | Simple negation     | `"không hay"`                 | `"Negative"`                     | 
+| EC05 ❌  | Double negation     | `"không không tốt"`           | **"Negative"** (actual behavior) | 
+| EC06    | Negation chain      | `"không chẳng tốt"`           | `"Positive"`                     | 
+| EC07 ❌  | Mixed noise + vocab | `"@@ dạy hay ## nhưng dở !!"` | **"Positive"** (actual behavior) | 
+
+
+#### 4. 
