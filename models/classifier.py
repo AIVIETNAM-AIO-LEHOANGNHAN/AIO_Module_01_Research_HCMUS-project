@@ -9,6 +9,12 @@ class Classifier:
         self.use_stopwords_retrieval = use_stopwords_retrieval
         self.stopwords = stopwords
         self.negative_words = negative_words
+        
+        with open(self.pos_count, 'r', encoding='utf-8') as file:
+            self.pos_vocab = json.load(file)
+
+        with open(self.neg_count, 'r', encoding='utf-8') as file:
+            self.neg_vocab = json.load(file)
 
     def predict(self, text):
         tokens = tokenize(text)
@@ -17,19 +23,13 @@ class Classifier:
         if self.use_stopwords_retrieval:
             tokens = [token for token in tokens if token not in stopwords]
 
-        with open(self.pos_count, 'r', encoding='utf-8') as file:
-            pos_vocab = json.load(file)
-
-        with open(self.neg_count, 'r', encoding='utf-8') as file:
-            neg_vocab = json.load(file)
-
         score = 0
         negative = 1
         for token in tokens:
-            if token in pos_vocab.keys():
+            if token in self.pos_vocab.keys():
                 score += negative
             
-            elif token in neg_vocab.keys():
+            elif token in self.neg_vocab.keys():
                 score -= negative
 
             if token in negative_words:
