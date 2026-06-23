@@ -64,6 +64,12 @@ if __name__ == "__main__":
         "không khó hiểu",
     ]
 
+    print("NEG FILE:", NEG_VOCAB)
+    print("POS LEN:", len(test_classifier.pos_vocab))
+    print("NEG LEN:", len(test_classifier.neg_vocab))
+    print("POS SAMPLE:", list(test_classifier.pos_vocab.items())[:5])
+    print("NEG SAMPLE:", list(test_classifier.neg_vocab.items())[:5])
+
     # Test không có từ dừng
     test_classifier.use_stopwords_retrieval = False
     print("Test khi không có từ dừng")
@@ -75,3 +81,5 @@ if __name__ == "__main__":
     print("Test khi có từ dừng")
     print(test_classifier.predict(text))
     print(test_classifier.predict_batch(list_of_text))
+    print("POS FILE:", POS_VOCAB)
+    
