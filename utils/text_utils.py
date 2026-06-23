@@ -1,10 +1,15 @@
 from pyvi import ViTokenizer
 from collections import Counter
 
+# [QA-T1 | LOW] Unused import: `Counter` is imported but never used in this module. Remove.
 def tokenize(text):
     """
     Tokenize sử package pyvi
     """
+    # [QA-T2 | MEDIUM] `if text:` treats whitespace-only strings ("   ") as truthy and passes them
+    #   to ViTokenizer, but None / "" return []. Behaviour is OK for "" but inconsistent for
+    #   whitespace. Prefer `if text and text.strip():` and accept only str (non-str input such as
+    #   NaN floats from pandas will raise inside pyvi — guard or cast at the caller).
     if text:
         tokens = ViTokenizer.spacy_tokenize(text)[0]
         return tokens
