@@ -1,0 +1,5 @@
+Metric,Raw (no stopwords),Cleaned (with stopwords),Delta
+Accuracy,0.518,0.555,0.03700000000000003
+Precision,0.665,0.677,0.01200000000000001
+Recall,0.518,0.555,0.03700000000000003
+F1-Score,0.38,0.462,0.08200000000000002
