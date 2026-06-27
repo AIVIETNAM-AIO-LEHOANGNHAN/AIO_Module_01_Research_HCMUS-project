@@ -88,7 +88,7 @@ def process_text(text, remove_stopwords=False, stopwords_set=None):
 def build_vocab(
     data_path,
     output_dir,
-    remove_stopwords=False,
+    remove_stopwords=True,
     min_freq=2,
     neutral_threshold=0.7
 ):

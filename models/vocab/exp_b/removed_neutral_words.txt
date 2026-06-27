@@ -1,9 +1,12 @@
+!
+,
+.
 bài_học
 bám
 cao_trình_độ
 chuyên_cần
-chúng_em
 coloncontemn
+colonsmile
 cung_cấp
 có_mặt
 công_nghệ
@@ -12,6 +15,7 @@ cạnh
 cảm_giác
 củng_cố
 cực
+dot
 dung
 dòng
 dạy_học
@@ -96,7 +100,6 @@ video
 ví_dụ
 vận_dụng
 vững_chắc
-wzjwz
 áp_dụng
 áp_lực
 ôn_tập

@@ -15,6 +15,7 @@
 | Full suite `python -m pytest tests/` | **10 failed, 26 passed** (order-dependent — see §4) |
 
 ## 2. A/B experiment result (reproduced by QA)
+
 `python -m experiments.run_experiment` on `data/test/cleaned.csv` (2000 rows) — numbers identical to the committed `results_*.csv` (✅ reproducible, not stale):
 
 | Metric | A — no stopword removal | B — stopword removal | Δ (B − A) |
@@ -25,6 +26,7 @@
 | F1 (weighted) | 0.380 | 0.462 | +0.082 |
 
 ### Error direction (QA error-mining)
+
 | Config | Errors / 2000 | Neg→Pos | Pos→Neg |
 |--------|--------------:|--------:|--------:|
 | A (no removal) | 964 (48.2%) | **954** | 10 |
@@ -33,6 +35,7 @@
 **QA reading:** The experiment is **fair and reproducible** (E1–E4 pass), but both configs sit at ~chance accuracy and the model labels **almost every negative review "Positive"** (954/964 errors in A). The +0.082 F1 "win" for stopword removal is measured on top of a fundamentally broken classifier, so the conclusion *"lọc stopwords hiệu quả hơn"* is **not yet defensible**.
 
 ## 3. Reproducibility / runnability defects
+
 | ID | Observed |
 |----|----------|
 | QA-E2 | `python experiments/run_experiment.py` → `ModuleNotFoundError: No module named 'models'` (no sys.path bootstrap). |
@@ -41,6 +44,7 @@
 | QA-E10 | `matplotlib` imported but absent from `requirements.txt`. |
 
 ## 4. Test-suite hygiene (order dependence)
+
 Running the full suite yields **10 failed** vs only 4 in isolation. Extra failures come from `tests/test_build_vocab.py`, whose `build_vocab()` call is hard-coded to write `models/vocab/{pos,neg}_vocab.json` (QA-B5). The tiny fixture + `min_freq=5` empties the committed vocab (`{}`), so later tests that read it fail. **Also**: `test_build_vocab.py` itself has 3 failing tests (monkeypatches the renamed `load_stopwords` → `load_words`). QA restored the vocab via `git checkout` after the run.
 
 ## 5. Findings → Issues
@@ -62,6 +66,7 @@ Running the full suite yields **10 failed** vs only 4 in isolation. Extra failur
 (Per-line rationale is inline in `experiments/run_experiment.py` as `# [QA-E..]` comments.)
 
 ## 6. Completion-criteria check (Task 7)
+
 | Criterion | Status |
 |-----------|--------|
 | `run_experiment.py` runs for both modes | ⚠️ runs only with PYTHONPATH + UTF-8 stdout (QA-E2/E3) |
@@ -71,6 +76,7 @@ Running the full suite yields **10 failed** vs only 4 in isolation. Extra failur
 | QA confirms fairness & result | ⚠️ fairness ✅, result ❌ not trustworthy (QA-E4) |
 
 ## 7. Re-check plan
+
 1. Fix QA-E4 (negation in classifier) → re-run A/B; accuracy must be meaningfully > 0.5 and Neg→Pos bias gone.
 2. Fix QA-E2/E3 so `python -m experiments.run_experiment` runs clean on Windows and writes all 3 outputs.
 3. Add `docs/Experimental_Results.md` with the insight + the fairness/scope note (QA-E9).

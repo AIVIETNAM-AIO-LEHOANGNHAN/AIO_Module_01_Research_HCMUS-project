@@ -24,7 +24,7 @@ def evaluate_model(classifier, test_path):
     else => Negative
     """
 
-    df = pd.read_csv(test_path)
+    df = pd.read_csv(TEST_CLEANED)
 
     y_true = df["label"]
 
@@ -73,7 +73,7 @@ def find_best_threshold(classifier, test_path, exp_name):
     for threshold in thresholds:
 
         # predict theo threshold
-        y_pred = [1 if s > threshold else 0 for s in scores]
+        y_pred = [1 if s >= threshold else 0 for s in scores]
 
         acc = accuracy_score(y_true, y_pred)
 
@@ -107,11 +107,11 @@ def print_and_save(results_a, results_b):
     và lưu file CSV
     """
 
-    print("\n================= COMPARISON (threshold = 1.5) =================")
+    print("\n================= COMPARISON (threshold = 2.0) =================")
 
-    # lấy kết quả threshold = 1.5
-    res_a = next(r for r in results_a if r["threshold"] == 1.5)
-    res_b = next(r for r in results_b if r["threshold"] == 1.5)
+    # lấy kết quả threshold = 2.0
+    res_a = next(r for r in results_a if r["threshold"] == 2.0)
+    res_b = next(r for r in results_b if r["threshold"] == 2.0)
 
     print(f"{'Metric':<15} | {'Exp A':<10} | {'Exp B':<10}")
     print("-" * 45)

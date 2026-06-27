@@ -65,17 +65,17 @@ class Classifier:
         }
 
         self.critique_weight = {
-            "thiếu": -1,
-            "ít": -1,
-            "nên": -0.5,
-            "cần": -0.5,
-            "đề_nghị": -0.5,
-            "cải_thiện": -0.5,
-            "bổ_sung": -0.5,
-            "xem_xét": -0.5,
-            "thay_đổi": -0.5,
-            "mong": -0.2,
-            "muốn": -0.2
+            "thiếu": -2,
+            "ít": -2,
+            "nên": -1.5,
+            "cần": -1.5,
+            "đề_nghị": -1.0,
+            "cải_thiện": -1.0,
+            "bổ_sung": -1.0,
+            "xem_xét": -1.0,
+            "thay_đổi": -1.0,
+            "mong": -0.8,
+            "muốn": -0.8
         }
         
 
@@ -156,29 +156,22 @@ class Classifier:
         """
         Trả về tổng điểm sentiment của cả câu
         """
-
-        # 1. clean text
-        text = preprocess(text)
-
-        # 2. split câu
-        segments = re.split(r"[,.!?;]", text)
-
-        total_score = 0.0
-
+    # Tách trước khi mất dấu câu
+        segments = re.split(r"[,.!?;]", str(text))
+        total_score = 0
+        
         for segment in segments:
-
-            tokens = tokenize(segment.strip())
-
-            # optional stopwords removal
+            segment = preprocess(segment)
+            
+            tokens = tokenize(segment)
+            
             if self.remove_stopwords:
+                
                 tokens = [
                     t for t in tokens
                     if t not in self.stopwords
                 ]
-
-            # score từng đoạn
             total_score += self._score_tokens(tokens)
-
         return total_score
 
     # ======================================================
@@ -186,7 +179,7 @@ class Classifier:
     # ======================================================
     def predict(self, text):
         score = self.get_score(text)
-        return "Positive" if score > 0 else "Negative"
+        return "Positive" if score >= 2.0 else "Negative"
 
     def predict_batch(self, texts):
         return [self.predict(t) for t in texts]
@@ -196,15 +189,15 @@ class Classifier:
 # TEST FUNCTION
 # ======================================================
 def test():
-    model = Classifier(remove_stopwords=False)
+    model = Classifier(remove_stopwords=True)
 
     samples = [
-        "dạy rất hay",
-        "dở",
-        "không tốt",
-        "rất tệ",
-        "nên cải thiện slide",
-        "giảng viên rất nhiệt tình"
+        "thầy dạy rất chi tiết và dễ hiểu, nhưng cần giảng nhanh hơn",
+        "thây dạy rât chi tiết và dễ hiểu nhưng cần giảng nhanh hơn",
+        "thầy chuyên môn kém, nhưng rất nhiệt tình",
+        "tuy chuyên môn chưa cao nhưng rất nhiệt tình với sinh viên, em thật sự rất ngưỡng mộ thầy",
+        "thầy rất yêu thương học sinh, nhưng đôi khi nghiên khắc, cần phải khắc phục"
+
     ]
 
     print("\n--- SENTIMENT TEST ---")
