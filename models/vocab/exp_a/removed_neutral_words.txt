@@ -1,6 +1,3 @@
-!
-,
-.
 bài
 bài_học
 bám
@@ -8,12 +5,11 @@ bên
 cao
 cao_trình_độ
 chuyên_cần
+chúng_em
 chịu
 coloncontemn
-colonsmile
 con
 cung_cấp
-cách
 có_mặt
 công_nghệ
 cơ_hội
@@ -21,7 +17,6 @@ cạnh
 cảm_giác
 củng_cố
 cực
-dot
 dung
 dòng
 dạy_học
@@ -122,6 +117,7 @@ vận_dụng
 với
 vừa
 vững_chắc
+wzjwz
 áp_dụng
 áp_lực
 ôn_tập
