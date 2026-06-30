@@ -51,6 +51,9 @@ def validate_inputs():
 
     return True
 def step_build_vocab():
+    # QA/QC [S4 | Low - spec]: build_vocab() reports progress via print() (terminal
+    # only). Spec Step 1 asks for progress ON the Streamlit UI. Consider passing a
+    # status callback or wrapping calls with st.status() to surface progress in-app.
     EXP_A_DIR.mkdir(parents=True, exist_ok=True)
     EXP_B_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -161,6 +164,13 @@ def evaluate_thresholds(classifier, test_df, exp_name):
             "f1": round(f1, 4),
         })
 
+        # QA/QC [S2 | Medium - analysis]: "Best" is chosen by ACCURACY alone. The
+        # task's stated goal was to fix over-prediction of Positive (FP~703) by
+        # balancing precision/recall. Empirically the best-accuracy threshold is 2.0,
+        # where exp_a STILL has FP=731 (confusion [[269,731],[64,936]]) - i.e.
+        # optimizing accuracy does not address the stated goal; the real gain comes
+        # from stopword removal (exp_b FP=351). Select by F1 (or report the P/R
+        # trade-off) to match the objective stated in the task.
         if accuracy > best_accuracy:
             best_accuracy = accuracy
             best_threshold = threshold
@@ -234,6 +244,9 @@ def show_results(results):
     col3.metric("Improvement", round(improvement, 4))
 
     st.subheader("Confusion Matrix")
+    # QA/QC [S3 | Low]: Rendered as a raw nested list with no TN/FP/FN/TP labels,
+    # which is hard to interpret. Render as a labeled 2x2 table (rows=actual,
+    # cols=predicted) so reviewers can read FP/FN directly.
     st.write("Exp A", best_a["confusion_matrix"])
     st.write("Exp B", best_b["confusion_matrix"])
 
@@ -261,6 +274,10 @@ def main():
     st.sidebar.header("Pipeline Controls")
 
     if st.sidebar.button("Chạy toàn bộ Pipeline"):
+        # QA/QC [S1 | Medium - spec]: A single global spinner hides per-step status.
+        # The spec requires each of the 4 steps to show "đang chạy / hoàn thành / lỗi".
+        # Wrap each step (build/clean/experiment/export) in its own st.status() so a
+        # failure is attributable to a specific step, not the whole run.
         try:
             with st.spinner("Đang chạy toàn bộ pipeline..."):
                 st.session_state.pipeline_results = run_all_pipeline()

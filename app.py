@@ -246,6 +246,10 @@ def inject_styles():
 
 
 def validate_vocab_files():
+    # QA/QC [S10 | Medium]: Only the 4 vocab JSONs are validated here. The lexicon
+    # files (negators/intensifiers/critique) are NOT checked, and load_words()
+    # returns an empty set silently if one is missing -> negation/intensifier/
+    # critique scoring is silently disabled with no UI warning. Validate lexicons too.
     required_files = [EXP_A_POS, EXP_A_NEG, EXP_B_POS, EXP_B_NEG]
     missing = [path for path in required_files if not path.exists()]
     if missing:
@@ -266,6 +270,10 @@ def token_styles():
 
 
 def analyze_tokens(text, classifier, remove_stopwords):
+    # QA/QC [S11 | Low]: This tokenizes the WHOLE preprocessed text once, but
+    # Classifier.get_score() first splits on [,.!?;] then tokenizes each segment.
+    # For sentences with punctuation the tokens shown here (and the counts below)
+    # can differ from the tokens actually scored. Align both paths for consistency.
     clean_text = preprocess(text)
     tokens = tokenize(clean_text)
     analyzed = []
@@ -366,12 +374,22 @@ def evaluate_batch(df):
         missing = required_cols - set(df.columns)
         raise ValueError(f"CSV is missing column(s): {', '.join(sorted(missing))}")
 
+    # QA/QC [S8 | Medium - spec]: Label handling now validates {0,1} and raises a
+    # clear error (good - no more silent crash). But spec Task 10 Step 4 says to
+    # CONVERT text labels "Positive"/"Negative" -> 1/0; this astype(int) still
+    # rejects text labels instead of mapping them. Accept {"Positive":1,"Negative":0}
+    # too so the documented CSV format works.
     df = df[["text", "label"]].copy()
     df["label"] = df["label"].astype(int)
     invalid_labels = set(df["label"].unique()) - {0, 1}
     if invalid_labels:
         raise ValueError("Column label only accepts 0 (Negative) and 1 (Positive)")
 
+    # QA/QC [S12 | Low - cross-task]: This app decides labels with a FIXED 2.0
+    # threshold (via predict_batch), while Task 9's pipeline SEARCHES for a best
+    # threshold across 9 values. They agree only because the search picked 2.0; if
+    # vocab/data change, the two deliverables will disagree. Consider reading the
+    # searched best threshold from docs/threshold_results.csv for consistency.
     clf_a = load_classifier("exp_a", False)
     clf_b = load_classifier("exp_b", True)
 
@@ -526,6 +544,10 @@ def render_main_input(classifier, remove_stopwords, lang):
     tokens = []
     if text.strip():
         score = classifier.get_score(text)
+        # QA/QC [S9 | Medium]: The 2.0 threshold is hardcoded here, duplicating the
+        # exact rule inside Classifier.predict(). Single-predict and batch decide the
+        # label via two different code paths. Prefer classifier.predict(text) so the
+        # decision threshold lives in one place and cannot drift.
         label = "Positive" if score >= 2.0 else "Negative"
         render_prediction(score, label, lang)
         tokens = analyze_tokens(text, classifier, remove_stopwords)
