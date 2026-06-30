@@ -358,15 +358,24 @@ def render_token_view(tokens):
 
 
 def evaluate_batch(df):
+    if "label" not in df.columns and "labels" in df.columns:
+        df = df.rename(columns={"labels": "label"})
+
     required_cols = {"text", "label"}
     if not required_cols.issubset(df.columns):
         missing = required_cols - set(df.columns)
         raise ValueError(f"CSV is missing column(s): {', '.join(sorted(missing))}")
 
+    df = df[["text", "label"]].copy()
+    df["label"] = df["label"].astype(int)
+    invalid_labels = set(df["label"].unique()) - {0, 1}
+    if invalid_labels:
+        raise ValueError("Column label only accepts 0 (Negative) and 1 (Positive)")
+
     clf_a = load_classifier("exp_a", False)
     clf_b = load_classifier("exp_b", True)
 
-    y_true = df["label"].astype(int).tolist()
+    y_true = df["label"].tolist()
     texts = df["text"].astype(str).tolist()
 
     pred_a_text = clf_a.predict_batch(texts)
@@ -374,9 +383,9 @@ def evaluate_batch(df):
     pred_a = [1 if label == "Positive" else 0 for label in pred_a_text]
     pred_b = [1 if label == "Positive" else 0 for label in pred_b_text]
 
-    rows = []
+    metric_rows = []
     for name, preds in [("Exp A", pred_a), ("Exp B", pred_b)]:
-        rows.append(
+        metric_rows.append(
             {
                 "experiment": name,
                 "accuracy": round(accuracy_score(y_true, preds), 4),
@@ -386,7 +395,20 @@ def evaluate_batch(df):
             }
         )
 
-    return pd.DataFrame(rows)
+    prediction_df = pd.DataFrame(
+        {
+            "stt": range(1, len(df) + 1),
+            "text": texts,
+            "label": y_true,
+            "label_name": ["Positive" if value == 1 else "Negative" for value in y_true],
+            "exp_a_prediction": pred_a_text,
+            "exp_a_correct": ["Đúng" if pred == true else "Sai" for pred, true in zip(pred_a, y_true)],
+            "exp_b_prediction": pred_b_text,
+            "exp_b_correct": ["Đúng" if pred == true else "Sai" for pred, true in zip(pred_b, y_true)],
+        }
+    )
+
+    return pd.DataFrame(metric_rows), prediction_df
 
 
 def render_token_panel(tokens, remove_stopwords, lang):
@@ -436,7 +458,7 @@ def render_batch_results(uploaded_file, lang):
         if not st.button(tr(lang, "run_batch")):
             return
 
-        metrics_df = evaluate_batch(df)
+        metrics_df, prediction_df = evaluate_batch(df)
     except Exception as exc:
         st.error(str(exc))
         return
@@ -478,6 +500,20 @@ def render_batch_results(uploaded_file, lang):
     else:
         st.error(tr(lang, "batch_worse"))
 
+    st.markdown(
+        "<div class='side-title'>Dự đoán từng câu</div>",
+        unsafe_allow_html=True,
+    )
+    st.dataframe(prediction_df, width="stretch", hide_index=True)
+
+    csv_data = prediction_df.to_csv(index=False).encode("utf-8-sig")
+    st.download_button(
+        "Tải kết quả dự đoán",
+        data=csv_data,
+        file_name="batch_predictions.csv",
+        mime="text/csv",
+    )
+
 
 def render_main_input(classifier, remove_stopwords, lang):
     st.header(tr(lang, "single_predict"))
@@ -512,21 +548,20 @@ def main():
         st.error(str(exc))
         st.stop()
 
-    st.sidebar.header("Điều khiển / Controls")
-    lang_label = st.sidebar.segmented_control(
-        "Ngôn ngữ / Language",
-        options=["VI", "EN"],
-        default="VI",
-    )
-    lang = "vi" if lang_label == "VI" else "en"
+    lang = "vi"
+    st.sidebar.header("Điều khiển")
 
     remove_stopwords = st.sidebar.toggle(tr(lang, "remove_stopwords"), value=False)
     uploaded_file = st.sidebar.file_uploader(tr(lang, "upload"), type=["csv"])
+    st.sidebar.caption(
+        "File CSV gồm 2 cột: `text` và `label`. "
+        "Cột `label` chỉ nhận 0 = Negative, 1 = Positive."
+    )
 
     exp_name = "exp_b" if remove_stopwords else "exp_a"
     classifier = load_classifier(exp_name, remove_stopwords)
 
-    main_col, side_col = st.columns([0.74, 0.26], gap="large")
+    main_col, side_col = st.columns([0.60, 0.40], gap="large")
 
     with main_col:
         st.title(tr(lang, "app_title"))
