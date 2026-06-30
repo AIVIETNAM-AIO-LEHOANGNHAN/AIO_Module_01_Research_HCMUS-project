@@ -1,3 +1,7 @@
+# QA/QC [N1 | Medium - reproducibility]: No version pins. app.py uses st.toggle
+# (Streamlit >=1.31), width="stretch" for st.dataframe/st.plotly_chart (>=1.40),
+# and hide_index (>=1.23). A machine that resolves an older Streamlit will error at
+# runtime. Pin minimum versions, e.g. streamlit>=1.40, to make installs reproducible.
 pandas
 scikit-learn
 datasets

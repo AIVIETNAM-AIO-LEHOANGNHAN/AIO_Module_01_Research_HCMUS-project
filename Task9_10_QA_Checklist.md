@@ -79,6 +79,19 @@
 
 ---
 
+## New Findings — discovered by running the teammate's rewritten `app.py`
+
+These were found after the rewrite (commits `e98ca6e` / `330b8e0`) by executing the merged code headless. None are crashes — the app runs — but each is worth addressing. Inline `# QA/QC [Nx]` comments added at each location.
+
+| ID | Severity | Location | Finding |
+|----|----------|----------|---------|
+| **N1** | Medium (reproducibility) | `requirements.txt` | No version pins. `app.py` uses `st.toggle` (Streamlit ≥1.31), `width="stretch"` for `st.dataframe`/`st.plotly_chart` (≥1.40), `hide_index` (≥1.23). An older resolved Streamlit will error at runtime. Pin `streamlit>=1.40`. |
+| **N2** | Low (dead i18n) | `app.py` (`main`, `lang = "vi"`) | `lang` is hardcoded; no language selector exists, so the whole `"en"` translation block + `"language"` key are dead code. Add a selector or drop the unused half. |
+| **N3** | Low (dead code) | `app.py` (`render_stopword_reason`) | Early `return` when stopwords are OFF makes the `else "reason_off"` branch unreachable — the OFF explanation never renders. |
+| **N4** | Low (consistency) | `app.py` (hardcoded VN strings) | `"Điều khiển"`, `"Dự đoán từng câu"`, `"Tải kết quả dự đoán"` bypass the `tr()` i18n system. Route them through `TEXT`. |
+
+> Verified by headless run: `evaluate_batch` on real test data → Exp A 0.59 / Exp B 0.725; `analyze_tokens` returns correct token types; empty input → `get_score` = 0.0 (no crash). Text-label CSVs still fail (S8) with the raw `invalid literal for int()` message.
+
 ## Data Validation (advisor QA/QC plan — strategy 1)
 
 | Check | Result |

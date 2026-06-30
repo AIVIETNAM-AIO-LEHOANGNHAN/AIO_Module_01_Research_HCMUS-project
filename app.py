@@ -347,6 +347,10 @@ def render_color_legend():
 
 
 def render_stopword_reason(remove_stopwords, lang):
+    # QA/QC [N3 | Low - dead code]: The early return when stopwords are OFF makes the
+    # `else tr(lang, "reason_off")` branch unreachable, so "reason_off" never renders
+    # (the OFF explanation is never shown). Either drop the early return to show
+    # reason_off, or remove the dead else-branch and the unused "reason_off" string.
     if not remove_stopwords:
         return
 
@@ -570,7 +574,14 @@ def main():
         st.error(str(exc))
         st.stop()
 
+    # QA/QC [N2 | Low - dead i18n]: lang is hardcoded to "vi" and there is no language
+    # selector widget, so the entire "en" translation block in TEXT (and the
+    # "language" key) is dead code. Either add a st.sidebar.selectbox/radio to set
+    # `lang`, or remove the unused "en" half to avoid drift.
     lang = "vi"
+    # QA/QC [N4 | Low - consistency]: Hardcoded VN string bypasses the tr() i18n
+    # system (see also "Dự đoán từng câu" and "Tải kết quả dự đoán" in render_batch
+    # _results). Use tr(lang, "sidebar_header") so all UI text flows through TEXT.
     st.sidebar.header("Điều khiển")
 
     remove_stopwords = st.sidebar.toggle(tr(lang, "remove_stopwords"), value=False)
