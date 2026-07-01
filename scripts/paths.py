@@ -13,6 +13,7 @@ TRAIN_DIR = DATA_DIR / "train"
 TEST_DIR = DATA_DIR / "test"
 STOPWORDS_DIR = DATA_DIR / "stopwords"
 STOPWORDS_CUSTOM = DATA_DIR / "stopwords" / "custom.txt"
+STOPWORDS_PROTECTED = DATA_DIR / "stopwords" / "protected.txt"
 TRAIN_CLEANED = TRAIN_DIR / "cleaned.csv"
 TEST_CLEANED = TEST_DIR / "cleaned.csv"
 
