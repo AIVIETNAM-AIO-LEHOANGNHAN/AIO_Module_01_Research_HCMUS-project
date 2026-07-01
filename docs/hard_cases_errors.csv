@@ -1,0 +1,643 @@
+text,label_true,label_pred,score,error_type
+Phần lý thuyết hơi nhàm chán .,0,1,1.5,False Positive
+Tuy cuốn hút nhưng dạy hơi khó theo dõi .,0,1,2.5,False Positive
+Thật sự cách truyền đạt còn nhiều chỗ chưa hợp lý .,0,1,2.0,False Positive
+Tuy hơi lộn xộn nhưng khá hữu ích .,1,0,0.5,False Negative
+Nhìn chung phương pháp dạy thiếu tính ứng dụng .,0,1,2.0,False Positive
+Cách truyền đạt vô cùng nhàm chán .,0,1,3.0,False Positive
+Bài giảng chẳng hề buồn ngủ một chút nào .,1,0,0.0,False Negative
+Thật sự giáo trình còn khá dàn trải .,0,1,2.0,False Positive
+Nói thật slide bài giảng cần sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Theo em slide bài giảng nên sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Tuy hơi chán nhưng rất dễ tiếp thu .,1,0,-0.5,False Negative
+Phương pháp dạy chưa tạo được hứng thú .,0,1,1.0,False Positive
+Tuy hơi hời hợt nhưng hơi thú vị .,1,0,0.0,False Negative
+Nói thật bài giảng tương đối cuốn hút .,1,0,0.8,False Negative
+Nói thật cách giảng dạy cần sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Nội dung môn học còn nhiều chỗ chưa hợp lý .,0,1,2.0,False Positive
+Tuy hơi sơ sài nhưng khá hấp dẫn .,1,0,0.5,False Negative
+Tuy rõ ràng nhưng dạy vô cùng khó theo dõi .,0,1,3.0,False Positive
+Tuy hơi tệ nhưng khá bổ ích .,1,0,0.5,False Negative
+Giảng viên truyền đạt chẳng rõ ràng .,0,1,1.0,False Positive
+Tuy hơi lộn xộn nhưng vô cùng rõ ràng .,1,0,-0.5,False Negative
+Theo em cô còn sơ sài và thiếu chiều sâu .,0,1,1.0,False Positive
+Bài giảng chẳng hề lan man chút nào .,1,0,-1.0,False Negative
+Tuy hơi mơ hồ nhưng hơi hay .,1,0,0.0,False Negative
+Nói chung phần lý thuyết chưa tạo được hứng thú .,0,1,1.0,False Positive
+Tuy hơi tệ nhưng hơi hay .,1,0,0.0,False Negative
+Nhìn chung nội dung môn học nên sắp xếp nội dung logic hơn .,0,1,4.5,False Positive
+Giáo trình nên cập nhật lại giáo trình .,0,1,1.5,False Positive
+Giảng viên truyền đạt chẳng dễ tiếp thu .,0,1,1.0,False Positive
+Tuy bổ ích nhưng dạy hơi khó theo dõi .,0,1,2.5,False Positive
+Nhìn chung slide bài giảng cần giảng chậm và kỹ hơn .,0,1,2.5,False Positive
+Nói thật môn học này nên cập nhật lại giáo trình .,0,1,1.5,False Positive
+Phương pháp dạy còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Nói thật nội dung môn học còn sơ sài và thiếu chiều sâu .,0,1,3.0,False Positive
+Cách truyền đạt không hề khó theo dõi chút nào .,1,0,0.0,False Negative
+Nội dung môn học chưa bám sát thực tế .,0,1,1.0,False Positive
+Nội dung môn học hơi khô khan .,0,1,2.5,False Positive
+Slide bài giảng hơi lan man .,0,1,1.5,False Positive
+Giáo trình cần sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Cô vô cùng buồn ngủ .,0,1,2.0,False Positive
+Tuy hơi khô khan nhưng cực kỳ dễ tiếp thu .,1,0,0.5,False Negative
+Môn học này quá nhàm chán .,0,1,2.5,False Positive
+Tuy hơi hời hợt nhưng hơi hấp dẫn .,1,0,0.0,False Negative
+Tuy hơi tệ nhưng quá dễ tiếp thu .,1,0,-0.5,False Negative
+Tuy tận tâm nhưng dạy vô cùng khó theo dõi .,0,1,4.0,False Positive
+Nói thật cô còn sơ sài và thiếu chiều sâu .,0,1,1.0,False Positive
+Slide bài giảng cần giảng chậm và kỹ hơn .,0,1,1.5,False Positive
+Tuy chi tiết nhưng dạy khá mơ hồ .,0,1,1.0,False Positive
+Nhìn chung bài giảng cần thêm nhiều bài tập thực hành .,0,1,1.5,False Positive
+Tuy hơi dở nhưng hơi dễ hiểu .,1,0,-0.5,False Negative
+Môn học này cần giảng chậm và kỹ hơn .,0,1,1.5,False Positive
+Nói chung nội dung môn học còn khá dàn trải .,0,1,2.0,False Positive
+Tuy sinh động nhưng dạy hơi chán .,0,1,1.5,False Positive
+Giảng viên vô cùng khô khan .,0,1,2.0,False Positive
+Tuy hơi tệ nhưng khá rõ ràng .,1,0,-0.5,False Negative
+Môn học này còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Nội dung môn học hơi hời hợt .,0,1,1.5,False Positive
+Nói chung môn học này chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Tuy cuốn hút nhưng dạy rất buồn ngủ .,0,1,3.5,False Positive
+Nói thật slide bài giảng còn nặng lý thuyết .,0,1,2.0,False Positive
+Tuy dễ hiểu nhưng dạy hơi khô khan .,0,1,1.5,False Positive
+Nhìn chung cách giảng dạy nên thêm nhiều bài tập thực hành .,0,1,2.5,False Positive
+Nói thật cách giảng dạy còn nặng lý thuyết .,0,1,2.0,False Positive
+Thầy dạy chẳng dễ hiểu .,0,1,1.0,False Positive
+Phần lý thuyết rất nhàm chán .,0,1,2.5,False Positive
+Thật sự slide bài giảng thiếu tính ứng dụng .,0,1,2.0,False Positive
+Giáo trình không hề khó theo dõi chút nào .,1,0,0.0,False Negative
+Tuy hơi buồn ngủ nhưng cực kỳ dễ tiếp thu .,1,0,0.5,False Negative
+Tuy hơi sơ sài nhưng khá dễ tiếp thu .,1,0,-0.5,False Negative
+Tuy thú vị nhưng dạy khá khó hiểu .,0,1,2.0,False Positive
+Nói chung thầy còn sơ sài và thiếu chiều sâu .,0,1,1.0,False Positive
+Thật sự nội dung môn học còn sơ sài và thiếu chiều sâu .,0,1,4.0,False Positive
+Tuy rõ ràng nhưng dạy quá nhàm chán .,0,1,2.5,False Positive
+Nói chung cách giảng dạy còn nặng lý thuyết .,0,1,2.0,False Positive
+Tuy hơi lộn xộn nhưng rất dễ hiểu .,1,0,-0.5,False Negative
+Thật sự thầy còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Tuy cuốn hút nhưng dạy hơi khó hiểu .,0,1,2.0,False Positive
+Cách truyền đạt chẳng hề khó theo dõi chút nào .,1,0,0.0,False Negative
+Tuy nhiệt tình nhưng dạy quá nhàm chán .,0,1,3.5,False Positive
+Giảng viên không hề lan man .,1,0,0.0,False Negative
+Tuy hơi sơ sài nhưng hơi tận tâm .,1,0,0.0,False Negative
+Thật sự môn học này chưa bám sát thực tế .,0,1,1.0,False Positive
+Phần lý thuyết còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Tuy hơi hời hợt nhưng khá tận tâm .,1,0,0.5,False Negative
+Tuy hấp dẫn nhưng dạy vô cùng khó theo dõi .,0,1,4.0,False Positive
+Theo em cô khá dễ hiểu .,1,0,0.0,False Negative
+Tuy sinh động nhưng dạy hơi mơ hồ .,0,1,1.5,False Positive
+Phương pháp dạy hơi khó hiểu .,0,1,1.0,False Positive
+Tuy tận tâm nhưng dạy vô cùng khô khan .,0,1,4.0,False Positive
+Nội dung môn học cần thêm nhiều bài tập thực hành .,0,1,2.5,False Positive
+Tuy hấp dẫn nhưng dạy hơi nhàm chán .,0,1,2.5,False Positive
+Theo em bài giảng còn nặng lý thuyết .,0,1,1.0,False Positive
+Nhìn chung nội dung môn học còn khá dàn trải .,0,1,3.0,False Positive
+Theo em thầy khá dễ tiếp thu .,1,0,0.0,False Negative
+Thầy không buồn ngủ một chút nào .,1,0,-1.0,False Negative
+Thầy dạy không dễ tiếp thu .,0,1,1.0,False Positive
+Nội dung môn học khá nhàm chán .,0,1,3.0,False Positive
+Nói thật cách truyền đạt chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Giảng viên giảng khá rõ ràng .,1,0,0.0,False Negative
+Cách giảng dạy còn nặng lý thuyết .,0,1,2.0,False Positive
+Cách giảng dạy vô cùng khó hiểu .,0,1,1.0,False Positive
+Tuy nhiệt tình nhưng dạy khá rời rạc .,0,1,1.0,False Positive
+Theo em môn học này nên sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Tuy dễ hiểu nhưng dạy khá buồn ngủ .,0,1,2.0,False Positive
+Giảng viên truyền đạt không dễ tiếp thu .,0,1,1.0,False Positive
+Nói chung nội dung môn học nên tương tác với sinh viên nhiều hơn .,0,1,1.5,False Positive
+Nói thật phần lý thuyết cần thêm nhiều bài tập thực hành .,0,1,1.5,False Positive
+Nói chung nội dung môn học cần sắp xếp nội dung logic hơn .,0,1,3.5,False Positive
+Nhìn chung cách giảng dạy chưa tạo được hứng thú .,0,1,2.0,False Positive
+Theo em slide bài giảng nên cập nhật lại giáo trình .,0,1,1.5,False Positive
+Nhìn chung cách truyền đạt nên sắp xếp nội dung logic hơn .,0,1,3.5,False Positive
+Tuy hơi hời hợt nhưng hơi chi tiết .,1,0,0.0,False Negative
+Giáo trình không lan man .,1,0,0.0,False Negative
+Theo em giáo trình còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Bài giảng vô cùng khô khan .,0,1,2.0,False Positive
+Tuy tâm huyết nhưng dạy rất lan man .,0,1,3.5,False Positive
+Tuy hơi lan man nhưng cực kỳ rõ ràng .,1,0,0.5,False Negative
+Tuy hơi lộn xộn nhưng hơi rõ ràng .,1,0,-0.5,False Negative
+Thật sự slide bài giảng chưa tạo được hứng thú .,0,1,2.0,False Positive
+Slide bài giảng còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Tuy hơi rời rạc nhưng hơi hay .,1,0,0.0,False Negative
+Nhìn chung phần lý thuyết chưa được đầu tư đúng mức .,0,1,3.0,False Positive
+Tuy rõ ràng nhưng dạy quá buồn ngủ .,0,1,2.5,False Positive
+Tuy hấp dẫn nhưng dạy quá khó hiểu .,0,1,2.0,False Positive
+Cách truyền đạt cực kỳ buồn ngủ .,0,1,3.0,False Positive
+Thầy cực kỳ khô khan .,0,1,2.0,False Positive
+Giảng viên truyền đạt không dễ hiểu .,0,1,1.0,False Positive
+Thầy truyền đạt không dễ hiểu .,0,1,1.0,False Positive
+Nói thật cách truyền đạt còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Cô chưa được đầu tư đúng mức .,0,1,1.0,False Positive
+Tuy hơi dở nhưng khá hữu ích .,1,0,0.5,False Negative
+Nói chung cách giảng dạy chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Tuy nhiệt tình nhưng dạy vô cùng khô khan .,0,1,4.0,False Positive
+Tuy sinh động nhưng dạy rất nhàm chán .,0,1,3.5,False Positive
+Nhìn chung cách truyền đạt chưa tạo được hứng thú .,0,1,2.0,False Positive
+Thật sự môn học này chưa được đầu tư đúng mức .,0,1,3.0,False Positive
+Thầy truyền đạt chẳng dễ hiểu .,0,1,1.0,False Positive
+Giảng viên quá nhàm chán .,0,1,1.5,False Positive
+Nói thật phần lý thuyết còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Tuy hơi tệ nhưng khá hữu ích .,1,0,0.5,False Negative
+Phần lý thuyết hơi khó theo dõi .,0,1,1.5,False Positive
+Tuy tâm huyết nhưng dạy quá nhàm chán .,0,1,3.5,False Positive
+Theo em cách giảng dạy nên sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Cô khá lan man .,0,1,1.0,False Positive
+Cách truyền đạt hơi lan man .,0,1,1.5,False Positive
+Thật sự cách giảng dạy chưa tạo được hứng thú .,0,1,2.0,False Positive
+Theo em bài giảng khá rõ ràng .,1,0,0.0,False Negative
+Nhìn chung cô nên thêm nhiều bài tập thực hành .,0,1,1.5,False Positive
+Theo em thầy còn nặng lý thuyết .,0,1,1.0,False Positive
+Theo em phương pháp dạy cần giảng chậm và kỹ hơn .,0,1,1.5,False Positive
+Tuy tâm huyết nhưng dạy vô cùng khó hiểu .,0,1,2.0,False Positive
+Cách truyền đạt vô cùng lan man .,0,1,3.0,False Positive
+Tuy sinh động nhưng dạy hơi khô khan .,0,1,2.5,False Positive
+Giảng viên khá khó theo dõi .,0,1,1.0,False Positive
+Theo em giáo trình còn khá dàn trải .,0,1,1.0,False Positive
+Tuy hơi sơ sài nhưng hơi thú vị .,1,0,0.0,False Negative
+Tuy bổ ích nhưng dạy hơi tệ .,0,1,1.5,False Positive
+Nói thật nội dung môn học nên cập nhật lại giáo trình .,0,1,2.5,False Positive
+Tuy hơi hời hợt nhưng khá nhiệt tình .,1,0,0.5,False Negative
+Tuy tâm huyết nhưng dạy cực kỳ khô khan .,0,1,4.0,False Positive
+Tuy thú vị nhưng dạy cực kỳ khó theo dõi .,0,1,4.0,False Positive
+Nói chung phần lý thuyết chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Tuy hơi rời rạc nhưng hơi dễ tiếp thu .,1,0,-0.5,False Negative
+Cách truyền đạt vô cùng khô khan .,0,1,3.0,False Positive
+Thật sự giảng viên còn nặng lý thuyết .,0,1,2.0,False Positive
+Nói chung phương pháp dạy còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Tuy hữu ích nhưng dạy khá mơ hồ .,0,1,1.0,False Positive
+Tuy chi tiết nhưng dạy hơi hời hợt .,0,1,1.5,False Positive
+Tuy hơi hời hợt nhưng hơi sinh động .,1,0,0.0,False Negative
+Nói chung slide bài giảng cần cập nhật lại giáo trình .,0,1,1.5,False Positive
+Thật sự giáo trình nên cập nhật lại giáo trình .,0,1,2.5,False Positive
+Môn học này cần sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Thật sự bài giảng cần sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Nhìn chung môn học này nên tương tác với sinh viên nhiều hơn .,0,1,1.5,False Positive
+Nói chung giảng viên tương đối bổ ích .,1,0,0.8,False Negative
+Tuy hơi hời hợt nhưng khá sinh động .,1,0,0.5,False Negative
+Cách giảng dạy vô cùng khó theo dõi .,0,1,3.0,False Positive
+Phần lý thuyết vô cùng khô khan .,0,1,3.0,False Positive
+Nhìn chung giảng viên thiếu tính ứng dụng .,0,1,1.0,False Positive
+Phần lý thuyết không khô khan .,1,0,0.0,False Negative
+Tuy hơi lộn xộn nhưng khá hấp dẫn .,1,0,0.5,False Negative
+Môn học này vô cùng khó theo dõi .,0,1,3.0,False Positive
+Phần lý thuyết không nhàm chán .,1,0,0.0,False Negative
+Nói thật cô khá dễ hiểu .,1,0,0.0,False Negative
+Giáo trình chưa tạo được hứng thú .,0,1,1.0,False Positive
+Tuy hơi lan man nhưng cực kỳ dễ hiểu .,1,0,0.5,False Negative
+Cô giảng hơi rõ ràng .,1,0,0.0,False Negative
+Nhìn chung cách truyền đạt thiếu tính ứng dụng .,0,1,2.0,False Positive
+Tuy thú vị nhưng dạy cực kỳ nhàm chán .,0,1,4.0,False Positive
+Theo em phương pháp dạy chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Tuy hơi khó hiểu nhưng hơi hay .,1,0,0.25,False Negative
+Thật sự môn học này thiếu tính ứng dụng .,0,1,2.0,False Positive
+Tuy thú vị nhưng dạy rất khó theo dõi .,0,1,3.5,False Positive
+Nhìn chung môn học này chưa được đầu tư đúng mức .,0,1,3.0,False Positive
+Thật sự cách truyền đạt cần thêm nhiều bài tập thực hành .,0,1,2.5,False Positive
+Thầy dạy chẳng dễ tiếp thu .,0,1,1.0,False Positive
+Nhìn chung cô cần cập nhật lại giáo trình .,0,1,1.5,False Positive
+Tuy hấp dẫn nhưng dạy vô cùng khô khan .,0,1,4.0,False Positive
+Nội dung môn học cực kỳ khó theo dõi .,0,1,4.0,False Positive
+Nhìn chung cách truyền đạt còn sơ sài và thiếu chiều sâu .,0,1,3.0,False Positive
+Tuy dễ hiểu nhưng dạy quá khó theo dõi .,0,1,2.5,False Positive
+Tuy dễ tiếp thu nhưng dạy vô cùng khô khan .,0,1,3.0,False Positive
+Nói thật thầy còn sơ sài và thiếu chiều sâu .,0,1,1.0,False Positive
+Thật sự phần lý thuyết còn nhiều chỗ chưa hợp lý .,0,1,2.0,False Positive
+Thầy không nhàm chán một chút nào .,1,0,-1.0,False Negative
+Thật sự cách giảng dạy nên sắp xếp nội dung logic hơn .,0,1,3.5,False Positive
+Nói chung slide bài giảng còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Nhìn chung phương pháp dạy cần cập nhật lại giáo trình .,0,1,2.5,False Positive
+Slide bài giảng cần cập nhật lại giáo trình .,0,1,1.5,False Positive
+Giáo trình khá khó theo dõi .,0,1,2.0,False Positive
+Theo em cô còn nặng lý thuyết .,0,1,1.0,False Positive
+Theo em phương pháp dạy cần sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Thầy không hề khó theo dõi chút nào .,1,0,-1.0,False Negative
+Nhìn chung cô còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Theo em giảng viên tương đối dễ hiểu .,1,0,0.0,False Negative
+Giảng viên chẳng hề khô khan một chút nào .,1,0,0.0,False Negative
+Bài giảng không hề khó theo dõi chút nào .,1,0,-1.0,False Negative
+Cô dạy không dễ hiểu .,0,1,1.0,False Positive
+Nói thật giáo trình thiếu tính ứng dụng .,0,1,1.0,False Positive
+Phần lý thuyết thiếu tính ứng dụng .,0,1,1.0,False Positive
+Tuy hơi hời hợt nhưng hơi tận tâm .,1,0,0.0,False Negative
+Cách truyền đạt cần giảng chậm và kỹ hơn .,0,1,1.5,False Positive
+Slide bài giảng nên sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Theo em cách giảng dạy thiếu tính ứng dụng .,0,1,1.0,False Positive
+Nhìn chung cách giảng dạy cần sắp xếp nội dung logic hơn .,0,1,3.5,False Positive
+Tuy hơi dở nhưng khá nhiệt tình .,1,0,0.5,False Negative
+Tuy hơi rời rạc nhưng hơi hấp dẫn .,1,0,0.0,False Negative
+Nội dung môn học khá chán .,0,1,1.0,False Positive
+Nói chung môn học này còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Tuy hơi hời hợt nhưng cực kỳ rõ ràng .,1,0,-0.5,False Negative
+Giảng viên truyền đạt không rõ ràng .,0,1,1.0,False Positive
+Giáo trình quá khó theo dõi .,0,1,2.5,False Positive
+Cách truyền đạt không nhàm chán một chút nào .,1,0,0.0,False Negative
+Tuy chi tiết nhưng dạy hơi chán .,0,1,1.5,False Positive
+Bài giảng quá khó theo dõi .,0,1,1.5,False Positive
+Nhìn chung slide bài giảng còn sơ sài và thiếu chiều sâu .,0,1,3.0,False Positive
+Thật sự môn học này chưa tạo được hứng thú .,0,1,2.0,False Positive
+Nói chung phương pháp dạy cần thêm nhiều bài tập thực hành .,0,1,1.5,False Positive
+Tuy hơi khó hiểu nhưng cực kỳ dễ hiểu .,1,0,0.0,False Negative
+Cô giảng hơi hấp dẫn .,1,0,0.5,False Negative
+Thầy truyền đạt không dễ tiếp thu .,0,1,1.0,False Positive
+Tuy cuốn hút nhưng dạy cực kỳ khó hiểu .,0,1,2.0,False Positive
+Slide bài giảng vô cùng nhàm chán .,0,1,3.0,False Positive
+Theo em cách truyền đạt nên thêm nhiều bài tập thực hành .,0,1,1.5,False Positive
+Cách giảng dạy cực kỳ khó hiểu .,0,1,1.0,False Positive
+Giảng viên giảng hơi chi tiết .,1,0,0.5,False Negative
+Tuy nhiệt tình nhưng dạy cực kỳ khô khan .,0,1,4.0,False Positive
+Nhìn chung bài giảng cần giảng chậm và kỹ hơn .,0,1,1.5,False Positive
+Cách giảng dạy vô cùng nhàm chán .,0,1,3.0,False Positive
+Tuy hơi mơ hồ nhưng khá nhiệt tình .,1,0,0.5,False Negative
+Tuy hơi khó hiểu nhưng rất dễ tiếp thu .,1,0,0.0,False Negative
+Tuy sinh động nhưng dạy hơi khó theo dõi .,0,1,2.5,False Positive
+Thầy chẳng hề khô khan .,1,0,0.0,False Negative
+Môn học này rất nhàm chán .,0,1,2.5,False Positive
+Theo em phương pháp dạy nên cập nhật lại giáo trình .,0,1,1.5,False Positive
+Thật sự cô nên cập nhật lại giáo trình .,0,1,1.5,False Positive
+Nói chung môn học này chưa tạo được hứng thú .,0,1,1.0,False Positive
+Nhìn chung bài giảng thiếu tính ứng dụng .,0,1,1.0,False Positive
+Tuy hơi khó hiểu nhưng quá bổ ích .,1,0,0.75,False Negative
+Nhìn chung phần lý thuyết nên giảng chậm và kỹ hơn .,0,1,2.5,False Positive
+Nhìn chung cách giảng dạy còn nặng lý thuyết .,0,1,3.0,False Positive
+Giảng viên dạy chẳng dễ hiểu .,0,1,1.0,False Positive
+Nhìn chung nội dung môn học nên bổ sung thêm ví dụ minh họa .,0,1,1.5,False Positive
+Tuy bổ ích nhưng dạy khá khô khan .,0,1,3.0,False Positive
+Giảng viên dạy không rõ ràng .,0,1,1.0,False Positive
+Tuy hơi nhàm chán nhưng hơi rõ ràng .,1,0,0.5,False Negative
+Slide bài giảng cực kỳ nhàm chán .,0,1,3.0,False Positive
+Nhìn chung môn học này cần thêm nhiều bài tập thực hành .,0,1,2.5,False Positive
+Tuy hơi dở nhưng cực kỳ dễ tiếp thu .,1,0,-0.5,False Negative
+Thật sự phương pháp dạy cần giảng chậm và kỹ hơn .,0,1,2.5,False Positive
+Tuy hơi buồn ngủ nhưng vô cùng dễ hiểu .,1,0,0.5,False Negative
+Tuy sinh động nhưng dạy hơi hời hợt .,0,1,1.5,False Positive
+Nhìn chung phần lý thuyết chưa bám sát thực tế .,0,1,1.0,False Positive
+Nói thật môn học này chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Cô chẳng hề khô khan chút nào .,1,0,-1.0,False Negative
+Thầy giảng vô cùng rõ ràng .,1,0,0.0,False Negative
+Tuy cuốn hút nhưng dạy vô cùng lan man .,0,1,4.0,False Positive
+Theo em nội dung môn học thiếu tính ứng dụng .,0,1,2.0,False Positive
+Thầy tương đối hữu ích .,1,0,0.8,False Negative
+Bài giảng không khó theo dõi một chút nào .,1,0,-1.0,False Negative
+Nói thật bài giảng chưa được đầu tư đúng mức .,0,1,1.0,False Positive
+Thật sự nội dung môn học còn nhiều chỗ chưa hợp lý .,0,1,3.0,False Positive
+Theo em slide bài giảng cần giảng chậm và kỹ hơn .,0,1,1.5,False Positive
+Tuy hay nhưng dạy quá buồn ngủ .,0,1,3.5,False Positive
+Tuy hay nhưng dạy rất lan man .,0,1,3.5,False Positive
+Thật sự giảng viên chưa tạo được hứng thú .,0,1,1.0,False Positive
+Phần lý thuyết chẳng hề buồn ngủ chút nào .,1,0,0.0,False Negative
+Thầy truyền đạt chẳng dễ tiếp thu .,0,1,1.0,False Positive
+Phần lý thuyết quá khó hiểu .,0,1,1.0,False Positive
+Thật sự cô còn khá dàn trải .,0,1,1.0,False Positive
+Tuy chi tiết nhưng dạy hơi buồn ngủ .,0,1,2.5,False Positive
+Tuy dễ hiểu nhưng dạy cực kỳ khó hiểu .,0,1,1.0,False Positive
+Bài giảng khá khô khan .,0,1,1.0,False Positive
+Tuy hơi rời rạc nhưng hơi thú vị .,1,0,0.0,False Negative
+Thầy giảng hơi hay .,1,0,0.5,False Negative
+Nhìn chung bài giảng còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Tuy dễ tiếp thu nhưng dạy khá khó hiểu .,0,1,1.0,False Positive
+Theo em phần lý thuyết nên sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Phương pháp dạy vô cùng khó theo dõi .,0,1,3.0,False Positive
+"Bài giảng rất dễ tiếp thu , em mong có thêm nhiều buổi như vậy .",1,0,0.2,False Negative
+Cách truyền đạt cực kỳ lan man .,0,1,3.0,False Positive
+Cách truyền đạt thiếu tính ứng dụng .,0,1,1.0,False Positive
+Nhìn chung phần lý thuyết cần tương tác với sinh viên nhiều hơn .,0,1,1.5,False Positive
+Nhìn chung nội dung môn học còn nhiều chỗ chưa hợp lý .,0,1,3.0,False Positive
+Nội dung môn học còn nặng lý thuyết .,0,1,3.0,False Positive
+Theo em giảng viên cần sắp xếp nội dung logic hơn .,0,1,1.5,False Positive
+Tuy bổ ích nhưng dạy quá khó theo dõi .,0,1,3.5,False Positive
+Theo em nội dung môn học còn khá dàn trải .,0,1,2.0,False Positive
+Theo em môn học này nên giảng chậm và kỹ hơn .,0,1,1.5,False Positive
+Nói thật nội dung môn học cần cập nhật lại giáo trình .,0,1,2.5,False Positive
+Thầy dạy không dễ hiểu .,0,1,1.0,False Positive
+Tuy hơi khó hiểu nhưng khá hấp dẫn .,1,0,0.5,False Negative
+Tuy chi tiết nhưng dạy cực kỳ khó theo dõi .,0,1,4.0,False Positive
+Cách giảng dạy cần thêm nhiều bài tập thực hành .,0,1,1.5,False Positive
+Nhìn chung cô thiếu tính ứng dụng .,0,1,1.0,False Positive
+Tuy rõ ràng nhưng dạy quá khô khan .,0,1,2.5,False Positive
+Tuy hơi mơ hồ nhưng quá dễ hiểu .,1,0,-0.5,False Negative
+Nói chung giáo trình còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Cô giảng hơi sinh động .,1,0,0.5,False Negative
+Tuy thú vị nhưng dạy cực kỳ khó hiểu .,0,1,2.0,False Positive
+Thầy giảng hơi hấp dẫn .,1,0,0.5,False Negative
+Nói thật bài giảng còn sơ sài và thiếu chiều sâu .,0,1,1.0,False Positive
+Môn học này không khô khan .,1,0,0.0,False Negative
+Thật sự cách truyền đạt còn khá dàn trải .,0,1,2.0,False Positive
+Nói thật giáo trình chưa tạo được hứng thú .,0,1,1.0,False Positive
+Tuy tâm huyết nhưng dạy hơi buồn ngủ .,0,1,2.5,False Positive
+Môn học này khá khó hiểu .,0,1,1.0,False Positive
+Thật sự thầy cần sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Thầy giảng cực kỳ dễ tiếp thu .,1,0,0.0,False Negative
+Nói chung slide bài giảng còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Bài giảng vô cùng nhàm chán .,0,1,2.0,False Positive
+Tuy hữu ích nhưng dạy khá khô khan .,0,1,3.0,False Positive
+Tuy hơi lan man nhưng khá rõ ràng .,1,0,0.5,False Negative
+Phương pháp dạy vô cùng nhàm chán .,0,1,3.0,False Positive
+Giảng viên giảng hơi bổ ích .,1,0,0.5,False Negative
+Bài giảng khá khó theo dõi .,0,1,1.0,False Positive
+Môn học này vô cùng lan man .,0,1,3.0,False Positive
+Nhìn chung phương pháp dạy cần tương tác với sinh viên nhiều hơn .,0,1,1.5,False Positive
+Thầy dạy không rõ ràng .,0,1,1.0,False Positive
+Bài giảng không buồn ngủ chút nào .,1,0,0.0,False Negative
+Nói chung phần lý thuyết cần sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Tuy hơi hời hợt nhưng khá cuốn hút .,1,0,0.5,False Negative
+Thật sự bài giảng cần giảng chậm và kỹ hơn .,0,1,1.5,False Positive
+Nhìn chung cách truyền đạt chưa bám sát thực tế .,0,1,1.0,False Positive
+Tuy hơi mơ hồ nhưng khá hay .,1,0,0.5,False Negative
+Theo em cô cần sắp xếp nội dung logic hơn .,0,1,1.5,False Positive
+Bài giảng còn nặng lý thuyết .,0,1,1.0,False Positive
+Tuy dễ hiểu nhưng dạy cực kỳ khô khan .,0,1,3.0,False Positive
+Tuy cuốn hút nhưng dạy khá chán .,0,1,1.0,False Positive
+Nhìn chung giảng viên chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Tuy hơi lan man nhưng quá dễ tiếp thu .,1,0,0.5,False Negative
+Tuy cuốn hút nhưng dạy khá tệ .,0,1,1.0,False Positive
+Nhìn chung slide bài giảng cần thêm nhiều bài tập thực hành .,0,1,2.5,False Positive
+Thật sự slide bài giảng còn nhiều chỗ chưa hợp lý .,0,1,2.0,False Positive
+Nói chung giáo trình chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Cô dạy chẳng dễ hiểu .,0,1,1.0,False Positive
+Nói chung giảng viên chưa được đầu tư đúng mức .,0,1,1.0,False Positive
+Theo em nội dung môn học nên giảng chậm và kỹ hơn .,0,1,2.5,False Positive
+Phần lý thuyết hơi khô khan .,0,1,1.5,False Positive
+Tuy hữu ích nhưng dạy hơi lộn xộn .,0,1,1.5,False Positive
+Thật sự cách truyền đạt chưa được đầu tư đúng mức .,0,1,3.0,False Positive
+Tuy hơi khó theo dõi nhưng vô cùng rõ ràng .,1,0,0.5,False Negative
+Tuy hơi lộn xộn nhưng cực kỳ thú vị .,1,0,-0.5,False Negative
+Tuy tâm huyết nhưng dạy cực kỳ khó theo dõi .,0,1,4.0,False Positive
+Tuy cuốn hút nhưng dạy khá khó hiểu .,0,1,2.0,False Positive
+Thật sự thầy chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Cô dạy chẳng rõ ràng .,0,1,1.0,False Positive
+Cô giảng vô cùng dễ tiếp thu .,1,0,0.0,False Negative
+Nhìn chung phương pháp dạy còn khá dàn trải .,0,1,2.0,False Positive
+Nhìn chung môn học này nên thêm nhiều bài tập thực hành .,0,1,2.5,False Positive
+Tuy hay nhưng dạy hơi khô khan .,0,1,2.5,False Positive
+Thật sự cô còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Theo em cách giảng dạy còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Nhìn chung cách truyền đạt chưa được đầu tư đúng mức .,0,1,3.0,False Positive
+Nhìn chung phương pháp dạy còn nặng lý thuyết .,0,1,3.0,False Positive
+Tuy hơi hời hợt nhưng khá hữu ích .,1,0,0.5,False Negative
+Phần lý thuyết cực kỳ nhàm chán .,0,1,3.0,False Positive
+Phương pháp dạy nên thêm nhiều bài tập thực hành .,0,1,1.5,False Positive
+Phần lý thuyết còn nặng lý thuyết .,0,1,2.0,False Positive
+Cách truyền đạt quá lan man .,0,1,2.5,False Positive
+Nói thật phần lý thuyết nên cập nhật lại giáo trình .,0,1,1.5,False Positive
+Cách giảng dạy không khó theo dõi một chút nào .,1,0,0.0,False Negative
+Tuy nhiệt tình nhưng dạy cực kỳ khó theo dõi .,0,1,4.0,False Positive
+Tuy hơi hời hợt nhưng hơi dễ hiểu .,1,0,-0.5,False Negative
+Cách giảng dạy quá khô khan .,0,1,2.5,False Positive
+Cô cực kỳ lan man .,0,1,2.0,False Positive
+Thầy không khó theo dõi chút nào .,1,0,0.0,False Negative
+Thật sự phần lý thuyết nên giảng chậm và kỹ hơn .,0,1,2.5,False Positive
+Cô rất khó theo dõi .,0,1,1.5,False Positive
+Tuy hơi khó theo dõi nhưng rất dễ hiểu .,1,0,0.5,False Negative
+Thật sự giảng viên còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Thật sự phần lý thuyết cần sắp xếp nội dung logic hơn .,0,1,3.5,False Positive
+Nói thật nội dung môn học chưa bám sát thực tế .,0,1,1.0,False Positive
+Tuy hữu ích nhưng dạy hơi khó hiểu .,0,1,2.0,False Positive
+Nội dung môn học chưa tạo được hứng thú .,0,1,2.0,False Positive
+Cách truyền đạt cực kỳ nhàm chán .,0,1,3.0,False Positive
+Tuy hơi rời rạc nhưng vô cùng dễ tiếp thu .,1,0,-0.5,False Negative
+Tuy hơi mơ hồ nhưng khá hấp dẫn .,1,0,0.5,False Negative
+Giáo trình chẳng hề khó theo dõi chút nào .,1,0,0.0,False Negative
+Tuy hữu ích nhưng dạy rất khó theo dõi .,0,1,3.5,False Positive
+Nhìn chung cách giảng dạy thiếu tính ứng dụng .,0,1,2.0,False Positive
+Theo em nội dung môn học còn nhiều chỗ chưa hợp lý .,0,1,2.0,False Positive
+Giảng viên dạy không dễ tiếp thu .,0,1,1.0,False Positive
+Tuy bổ ích nhưng dạy hơi chán .,0,1,1.5,False Positive
+Tuy hay nhưng dạy khá khó hiểu .,0,1,2.0,False Positive
+Tuy nhiệt tình nhưng dạy hơi nhàm chán .,0,1,2.5,False Positive
+Nói thật cách giảng dạy chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Theo em phần lý thuyết còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Phương pháp dạy vô cùng khô khan .,0,1,3.0,False Positive
+Tuy tâm huyết nhưng dạy rất khó hiểu .,0,1,2.0,False Positive
+Tuy dễ hiểu nhưng dạy cực kỳ buồn ngủ .,0,1,3.0,False Positive
+Tuy tận tâm nhưng dạy quá khó theo dõi .,0,1,3.5,False Positive
+Thật sự phần lý thuyết còn sơ sài và thiếu chiều sâu .,0,1,3.0,False Positive
+Nhìn chung cô còn nặng lý thuyết .,0,1,2.0,False Positive
+Nói chung nội dung môn học còn nhiều chỗ chưa hợp lý .,0,1,2.0,False Positive
+Nhìn chung giáo trình còn nặng lý thuyết .,0,1,3.0,False Positive
+Phương pháp dạy rất lan man .,0,1,2.5,False Positive
+Thầy giảng hơi sinh động .,1,0,0.5,False Negative
+Tuy hơi khó hiểu nhưng rất nhiệt tình .,1,0,0.75,False Negative
+Theo em môn học này còn nặng lý thuyết .,0,1,2.0,False Positive
+Tuy hơi khó hiểu nhưng hơi thú vị .,1,0,0.25,False Negative
+Tuy hơi chán nhưng hơi bổ ích .,1,0,0.0,False Negative
+Thật sự phần lý thuyết cần giảng chậm và kỹ hơn .,0,1,2.5,False Positive
+Nói thật phần lý thuyết chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Thật sự nội dung môn học cần đầu tư hơn cho phần thực hành .,0,1,1.5,False Positive
+Tuy cuốn hút nhưng dạy hơi dở .,0,1,1.5,False Positive
+Tuy chi tiết nhưng dạy khá khô khan .,0,1,3.0,False Positive
+Bài giảng không lan man chút nào .,1,0,0.0,False Negative
+Nói chung phương pháp dạy còn khá dàn trải .,0,1,1.0,False Positive
+Tuy hơi tệ nhưng hơi cuốn hút .,1,0,0.0,False Negative
+Tuy hơi rời rạc nhưng khá tâm huyết .,1,0,0.5,False Negative
+Theo em giáo trình còn nặng lý thuyết .,0,1,2.0,False Positive
+Giảng viên giảng vô cùng dễ hiểu .,1,0,0.0,False Negative
+Nói thật slide bài giảng còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Theo em phần lý thuyết còn nặng lý thuyết .,0,1,2.0,False Positive
+Thầy không hề khô khan chút nào .,1,0,-1.0,False Negative
+Tuy hơi mơ hồ nhưng khá sinh động .,1,0,0.5,False Negative
+Thật sự cách giảng dạy còn khá dàn trải .,0,1,2.0,False Positive
+Thầy truyền đạt chẳng rõ ràng .,0,1,1.0,False Positive
+Môn học này nên sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Tuy hơi dở nhưng khá tâm huyết .,1,0,0.5,False Negative
+Slide bài giảng còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Tuy hay nhưng dạy cực kỳ buồn ngủ .,0,1,4.0,False Positive
+Môn học này hơi buồn ngủ .,0,1,1.5,False Positive
+Tuy hơi sơ sài nhưng hơi bổ ích .,1,0,0.0,False Negative
+Giáo trình không nhàm chán .,1,0,0.0,False Negative
+Thật sự phương pháp dạy cần cập nhật lại giáo trình .,0,1,2.5,False Positive
+Tuy cuốn hút nhưng dạy hơi sơ sài .,0,1,1.5,False Positive
+Cách giảng dạy quá lan man .,0,1,2.5,False Positive
+Nhìn chung cô còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Thầy không hề buồn ngủ .,1,0,0.0,False Negative
+Nói thật nội dung môn học còn khá dàn trải .,0,1,2.0,False Positive
+Tuy hơi lan man nhưng vô cùng dễ hiểu .,1,0,0.5,False Negative
+Cô truyền đạt không dễ hiểu .,0,1,1.0,False Positive
+Tuy rõ ràng nhưng dạy rất khó theo dõi .,0,1,2.5,False Positive
+Cô dạy không dễ tiếp thu .,0,1,1.0,False Positive
+Tuy hơi sơ sài nhưng khá hữu ích .,1,0,0.5,False Negative
+Bài giảng không hề nhàm chán một chút nào .,1,0,0.0,False Negative
+Cô quá khó theo dõi .,0,1,1.5,False Positive
+Tuy hữu ích nhưng dạy vô cùng khô khan .,0,1,4.0,False Positive
+Cô dạy không rõ ràng .,0,1,1.0,False Positive
+Phương pháp dạy quá lan man .,0,1,2.5,False Positive
+Cô vô cùng khó theo dõi .,0,1,2.0,False Positive
+Tuy hơi khó hiểu nhưng khá thú vị .,1,0,0.5,False Negative
+Nhìn chung bài giảng cần cập nhật lại giáo trình .,0,1,1.5,False Positive
+Cách giảng dạy chưa tạo được hứng thú .,0,1,1.0,False Positive
+Bài giảng không khô khan một chút nào .,1,0,-1.0,False Negative
+Tuy tâm huyết nhưng dạy khá buồn ngủ .,0,1,3.0,False Positive
+Phương pháp dạy không buồn ngủ một chút nào .,1,0,0.0,False Negative
+Nhìn chung phần lý thuyết thiếu tính ứng dụng .,0,1,2.0,False Positive
+Nói thật môn học này chưa tạo được hứng thú .,0,1,1.0,False Positive
+Nói chung giảng viên còn nặng lý thuyết .,0,1,1.0,False Positive
+Tuy nhiệt tình nhưng dạy khá khó hiểu .,0,1,2.0,False Positive
+Tuy hơi sơ sài nhưng cực kỳ dễ tiếp thu .,1,0,-0.5,False Negative
+Tuy thú vị nhưng dạy khá sơ sài .,0,1,1.0,False Positive
+Slide bài giảng quá khó theo dõi .,0,1,2.5,False Positive
+Nhìn chung giáo trình chưa tạo được hứng thú .,0,1,2.0,False Positive
+Cô truyền đạt chẳng rõ ràng .,0,1,1.0,False Positive
+Theo em giáo trình nên sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Bài giảng không hề lan man chút nào .,1,0,-1.0,False Negative
+Tuy hơi khó hiểu nhưng hơi dễ hiểu .,1,0,0.0,False Negative
+Nhìn chung cách truyền đạt nên tương tác với sinh viên nhiều hơn .,0,1,1.5,False Positive
+Tuy hơi nhàm chán nhưng hơi dễ tiếp thu .,1,0,0.5,False Negative
+Tuy hơi khô khan nhưng cực kỳ dễ hiểu .,1,0,0.5,False Negative
+Môn học này vô cùng khó hiểu .,0,1,1.0,False Positive
+Cô cực kỳ khô khan .,0,1,2.0,False Positive
+Tuy hữu ích nhưng dạy vô cùng khó theo dõi .,0,1,4.0,False Positive
+Tuy bổ ích nhưng dạy hơi rời rạc .,0,1,1.5,False Positive
+Giảng viên dạy không dễ hiểu .,0,1,1.0,False Positive
+Thật sự phương pháp dạy chưa được đầu tư đúng mức .,0,1,3.0,False Positive
+Tuy bổ ích nhưng dạy rất khô khan .,0,1,3.5,False Positive
+Nội dung môn học cần sắp xếp nội dung logic hơn .,0,1,3.5,False Positive
+Nói chung cách truyền đạt thiếu tính ứng dụng .,0,1,1.0,False Positive
+Slide bài giảng còn khá dàn trải .,0,1,1.0,False Positive
+Tuy hơi khô khan nhưng hơi dễ hiểu .,1,0,0.5,False Negative
+Thật sự phần lý thuyết nên thêm nhiều bài tập thực hành .,0,1,2.5,False Positive
+Nói thật môn học này còn khá dàn trải .,0,1,1.0,False Positive
+Thật sự cách giảng dạy cần giảng chậm và kỹ hơn .,0,1,2.5,False Positive
+Nói thật cách truyền đạt còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Phần lý thuyết hơi lan man .,0,1,1.5,False Positive
+Nói chung cách truyền đạt cần thêm nhiều bài tập thực hành .,0,1,1.5,False Positive
+Phương pháp dạy cực kỳ lan man .,0,1,3.0,False Positive
+Cách giảng dạy thiếu tính ứng dụng .,0,1,1.0,False Positive
+Tuy hơi khó hiểu nhưng hơi tận tâm .,1,0,0.25,False Negative
+Nhìn chung cách truyền đạt còn nhiều chỗ chưa hợp lý .,0,1,2.0,False Positive
+Slide bài giảng chưa tạo được hứng thú .,0,1,1.0,False Positive
+Cách truyền đạt rất khó hiểu .,0,1,1.0,False Positive
+Tuy tận tâm nhưng dạy cực kỳ khó hiểu .,0,1,2.0,False Positive
+Thật sự môn học này còn nặng lý thuyết .,0,1,3.0,False Positive
+Cách truyền đạt nên cập nhật lại giáo trình .,0,1,1.5,False Positive
+Môn học này còn khá dàn trải .,0,1,1.0,False Positive
+Nói chung giảng viên nên sắp xếp nội dung logic hơn .,0,1,1.5,False Positive
+Nội dung môn học vô cùng buồn ngủ .,0,1,4.0,False Positive
+Tuy bổ ích nhưng dạy hơi buồn ngủ .,0,1,2.5,False Positive
+Tuy sinh động nhưng dạy hơi nhàm chán .,0,1,2.5,False Positive
+Tuy tâm huyết nhưng dạy hơi khó hiểu .,0,1,2.0,False Positive
+Nói thật phần lý thuyết còn khá dàn trải .,0,1,1.0,False Positive
+Phương pháp dạy hơi lan man .,0,1,1.5,False Positive
+Thật sự cách truyền đạt chưa bám sát thực tế .,0,1,1.0,False Positive
+Phần lý thuyết cần sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Cách truyền đạt rất lan man .,0,1,2.5,False Positive
+Tuy chi tiết nhưng dạy khá chán .,0,1,1.0,False Positive
+Tuy hay nhưng dạy quá nhàm chán .,0,1,3.5,False Positive
+Tuy hơi nhàm chán nhưng rất dễ hiểu .,1,0,0.5,False Negative
+Nhìn chung giảng viên còn sơ sài và thiếu chiều sâu .,0,1,2.0,False Positive
+Nói thật thầy khá rõ ràng .,1,0,0.0,False Negative
+Tuy hữu ích nhưng dạy khá khó hiểu .,0,1,2.0,False Positive
+Tuy rõ ràng nhưng dạy cực kỳ khô khan .,0,1,3.0,False Positive
+Tuy nhiệt tình nhưng dạy khá buồn ngủ .,0,1,3.0,False Positive
+Nói thật phần lý thuyết cần cập nhật lại giáo trình .,0,1,1.5,False Positive
+Cô giảng quá dễ hiểu .,1,0,0.0,False Negative
+Tuy thú vị nhưng dạy khá buồn ngủ .,0,1,3.0,False Positive
+Nội dung môn học khá mơ hồ .,0,1,1.0,False Positive
+Giáo trình cực kỳ buồn ngủ .,0,1,3.0,False Positive
+Nhìn chung giáo trình cần tương tác với sinh viên nhiều hơn .,0,1,1.5,False Positive
+Tuy tâm huyết nhưng dạy cực kỳ buồn ngủ .,0,1,4.0,False Positive
+Tuy cuốn hút nhưng dạy cực kỳ lan man .,0,1,4.0,False Positive
+Tuy hơi chán nhưng vô cùng dễ tiếp thu .,1,0,-0.5,False Negative
+Môn học này cần cập nhật lại giáo trình .,0,1,1.5,False Positive
+Tuy hay nhưng dạy cực kỳ nhàm chán .,0,1,4.0,False Positive
+Nói chung cách truyền đạt chưa tạo được hứng thú .,0,1,1.0,False Positive
+Giảng viên dạy chẳng rõ ràng .,0,1,1.0,False Positive
+Thầy truyền đạt không rõ ràng .,0,1,1.0,False Positive
+Tuy tâm huyết nhưng dạy hơi chán .,0,1,1.5,False Positive
+Cô dạy chẳng dễ tiếp thu .,0,1,1.0,False Positive
+Nhìn chung giáo trình còn nhiều chỗ chưa hợp lý .,0,1,2.0,False Positive
+Theo em cách truyền đạt thiếu tính ứng dụng .,0,1,1.0,False Positive
+Tuy hữu ích nhưng dạy khá hời hợt .,0,1,1.0,False Positive
+"Giảng viên vô cùng dễ tiếp thu , em mong có thêm nhiều buổi như vậy .",1,0,0.2,False Negative
+Thật sự slide bài giảng còn khá dàn trải .,0,1,2.0,False Positive
+Theo em giáo trình nên cập nhật lại giáo trình .,0,1,1.5,False Positive
+Thầy cực kỳ lan man .,0,1,2.0,False Positive
+Tuy tận tâm nhưng dạy cực kỳ lan man .,0,1,4.0,False Positive
+Tuy hữu ích nhưng dạy cực kỳ buồn ngủ .,0,1,4.0,False Positive
+Thật sự slide bài giảng cần cập nhật lại giáo trình .,0,1,2.5,False Positive
+Bài giảng cực kỳ khô khan .,0,1,2.0,False Positive
+Tuy hơi lộn xộn nhưng hơi nhiệt tình .,1,0,0.0,False Negative
+Thật sự giảng viên còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Slide bài giảng vô cùng buồn ngủ .,0,1,3.0,False Positive
+Theo em phương pháp dạy còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Cô truyền đạt chẳng dễ hiểu .,0,1,1.0,False Positive
+Nhìn chung thầy tương đối cuốn hút .,1,0,0.8,False Negative
+Thầy không khó hiểu .,1,0,0.0,False Negative
+Slide bài giảng không lan man một chút nào .,1,0,0.0,False Negative
+Tuy hơi chán nhưng hơi hấp dẫn .,1,0,0.0,False Negative
+Giảng viên không khó hiểu .,1,0,0.0,False Negative
+Cách giảng dạy không khô khan .,1,0,0.0,False Negative
+Tuy cuốn hút nhưng dạy rất nhàm chán .,0,1,3.5,False Positive
+Nói chung cô khá dễ hiểu .,1,0,0.0,False Negative
+Cách giảng dạy hơi buồn ngủ .,0,1,1.5,False Positive
+Nhìn chung giáo trình chưa bám sát thực tế .,0,1,1.0,False Positive
+Nói thật slide bài giảng còn khá dàn trải .,0,1,1.0,False Positive
+Nói thật giáo trình cần giảng chậm và kỹ hơn .,0,1,1.5,False Positive
+Phương pháp dạy cực kỳ khô khan .,0,1,3.0,False Positive
+Thầy không hề buồn ngủ chút nào .,1,0,-1.0,False Negative
+Cách giảng dạy vô cùng khô khan .,0,1,3.0,False Positive
+Thầy giảng khá dễ hiểu .,1,0,0.0,False Negative
+Giáo trình hơi nhàm chán .,0,1,1.5,False Positive
+Cô vô cùng nhàm chán .,0,1,2.0,False Positive
+Giảng viên quá khô khan .,0,1,1.5,False Positive
+Tuy sinh động nhưng dạy vô cùng buồn ngủ .,0,1,4.0,False Positive
+Tuy tận tâm nhưng dạy rất khó theo dõi .,0,1,3.5,False Positive
+Tuy chi tiết nhưng dạy vô cùng nhàm chán .,0,1,4.0,False Positive
+Cô chẳng hề khô khan .,1,0,0.0,False Negative
+Bài giảng không khô khan chút nào .,1,0,0.0,False Negative
+Nhìn chung cô nên sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Nhìn chung nội dung môn học cần sắp xếp nội dung logic hơn .,0,1,4.5,False Positive
+Bài giảng khá buồn ngủ .,0,1,1.0,False Positive
+Thầy tương đối dễ hiểu .,1,0,0.0,False Negative
+Theo em giáo trình chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Nhìn chung cách truyền đạt cần cập nhật lại giáo trình .,0,1,2.5,False Positive
+Tuy hay nhưng dạy khá chán .,0,1,1.0,False Positive
+Slide bài giảng hơi nhàm chán .,0,1,1.5,False Positive
+Nói thật thầy còn nặng lý thuyết .,0,1,1.0,False Positive
+Tuy hấp dẫn nhưng dạy vô cùng lan man .,0,1,4.0,False Positive
+Bài giảng không lan man một chút nào .,1,0,-1.0,False Negative
+Tuy nhiệt tình nhưng dạy khá sơ sài .,0,1,1.0,False Positive
+Bài giảng tương đối hay .,1,0,0.8,False Negative
+Thật sự giáo trình còn nhiều chỗ chưa hợp lý .,0,1,2.0,False Positive
+Tuy hơi khó hiểu nhưng quá sinh động .,1,0,0.75,False Negative
+Môn học này rất khô khan .,0,1,2.5,False Positive
+Tuy tâm huyết nhưng dạy hơi mơ hồ .,0,1,1.5,False Positive
+Tuy hơi dở nhưng hơi cuốn hút .,1,0,0.0,False Negative
+Giáo trình chẳng hề nhàm chán chút nào .,1,0,0.0,False Negative
+Tuy dễ tiếp thu nhưng dạy vô cùng nhàm chán .,0,1,3.0,False Positive
+Nói thật phương pháp dạy nên sắp xếp nội dung logic hơn .,0,1,2.5,False Positive
+Tuy dễ tiếp thu nhưng dạy vô cùng buồn ngủ .,0,1,3.0,False Positive
+Bài giảng còn sơ sài và thiếu chiều sâu .,0,1,1.0,False Positive
+Tuy hơi rời rạc nhưng hơi rõ ràng .,1,0,-0.5,False Negative
+Tuy hữu ích nhưng dạy quá lan man .,0,1,3.5,False Positive
+Cô truyền đạt chẳng dễ tiếp thu .,0,1,1.0,False Positive
+Theo em cách giảng dạy chưa được đầu tư đúng mức .,0,1,2.0,False Positive
+Giảng viên giảng hơi tận tâm .,1,0,0.5,False Negative
+Cô không hề lan man một chút nào .,1,0,0.0,False Negative
+Cách truyền đạt khá lan man .,0,1,2.0,False Positive
+Cách truyền đạt không buồn ngủ .,1,0,0.0,False Negative
+Cách truyền đạt khá khó hiểu .,0,1,1.0,False Positive
+Tuy rõ ràng nhưng dạy cực kỳ nhàm chán .,0,1,3.0,False Positive
+Theo em môn học này cần thêm nhiều bài tập thực hành .,0,1,1.5,False Positive
+Tuy tâm huyết nhưng dạy cực kỳ lan man .,0,1,4.0,False Positive
+Theo em môn học này còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Thật sự phương pháp dạy còn nặng lý thuyết .,0,1,3.0,False Positive
+Tuy hơi lan man nhưng vô cùng rõ ràng .,1,0,0.5,False Negative
+Giảng viên truyền đạt chẳng dễ hiểu .,0,1,1.0,False Positive
+Giáo trình không hề khô khan chút nào .,1,0,0.0,False Negative
+Nhìn chung cách giảng dạy còn khá dàn trải .,0,1,2.0,False Positive
+Nhìn chung cách giảng dạy nên tương tác với sinh viên nhiều hơn .,0,1,1.5,False Positive
+Tuy thú vị nhưng dạy vô cùng khô khan .,0,1,4.0,False Positive
+Tuy hơi chán nhưng hơi tận tâm .,1,0,0.0,False Negative
+Tuy tận tâm nhưng dạy khá lộn xộn .,0,1,1.0,False Positive
+Giảng viên chưa được đầu tư đúng mức .,0,1,1.0,False Positive
+Theo em giáo trình thiếu tính ứng dụng .,0,1,1.0,False Positive
+Thầy tương đối dễ tiếp thu .,1,0,0.0,False Negative
+Nói chung nội dung môn học còn sơ sài và thiếu chiều sâu .,0,1,3.0,False Positive
+Thật sự phần lý thuyết chưa tạo được hứng thú .,0,1,2.0,False Positive
+Slide bài giảng hơi khô khan .,0,1,1.5,False Positive
+Phương pháp dạy khá nhàm chán .,0,1,2.0,False Positive
+Nói chung giáo trình còn nhiều chỗ chưa hợp lý .,0,1,1.0,False Positive
+Tuy thú vị nhưng dạy khá hời hợt .,0,1,1.0,False Positive
+Phương pháp dạy cực kỳ nhàm chán .,0,1,3.0,False Positive
+Tuy hơi tệ nhưng cực kỳ rõ ràng .,1,0,-0.5,False Negative
+Phần lý thuyết không hề lan man chút nào .,1,0,0.0,False Negative
